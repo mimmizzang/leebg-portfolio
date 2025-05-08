@@ -56,7 +56,7 @@ header nav a {
   background: #00bfa5;
   color: white;
   border: none;
-  border-radius: 30px; /* 더 둥글게 */
+  border-radius: 30px;
   font-size: 16px;
   transition: background 0.3s;
   cursor: pointer;
@@ -110,7 +110,7 @@ header nav a {
   transition: transform 0.3s ease;
 }
 .swiper-slide img:hover {
-  transform: scale(1.2); /* hover 시 확대 효과 */
+  transform: scale(1.2);
 }
 
 .github-btn {
