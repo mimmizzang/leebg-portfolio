@@ -70,7 +70,7 @@ gsap.utils.toArray(".section").forEach((section) => {
   });
 });
 
-// skills 슬라이드 가능
+// skills 슬라이드 기능
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 6,
   spaceBetween: 15,
