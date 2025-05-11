@@ -37,23 +37,20 @@ header .container {
 }
 
 .nav-swiper {
-  width: 50%;
+  width: 60%;
   padding: 0 20px;
 }
 
 .nav-swiper .swiper-slide {
-  width: 100px;
+  width: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  font-size: 16px;
   font-weight: 500;
   color: #333;
   background: white;
-  border-radius: 30px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nav-swiper .swiper-slide:hover {
@@ -83,15 +80,15 @@ header .container {
   margin-bottom: 20px;
 }
 
-/**/
-.container .cards {
+/*cards 공통*/
+.cards {
   display: flex;
   gap: 20px;
   justify-content: center;
   padding: 20px 0;
 }
 
-.card {
+.cards .card {
   display: block;
   width: 200px;
   height: 150px;
@@ -123,4 +120,26 @@ footer {
   padding: 20px 0;
   text-align: center;
   font-size: 13px;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  padding: 10px 15px;
+  font-size: 20px;
+  background: #0069bf;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* 처음에는 숨김 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+  z-index: 10;
+}
+#scrollToTopBtn:hover {
+  background: #003789;
 }

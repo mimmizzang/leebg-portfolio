@@ -38,6 +38,10 @@ header .container {
 header nav a {
   margin-left: 25px;
   font-weight: 500;
+  color: #858383;
+}
+header nav a:hover {
+  color: black;
 }
 
 /* 메인 섹션 */
