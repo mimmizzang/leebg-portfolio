@@ -17,6 +17,8 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
     <link rel="stylesheet" href="style.css" />
 
     <script defer src="script.js"></script>
@@ -37,9 +39,8 @@
 
     <section id="main">
       <div class="inner">
-        <h2>안녕하세요!<br />~~~~~ ~~~ 이병관입니다.</h2>
+        <h2>안녕하세요!<br />웹 퍼블리셔 이병관입니다.</h2>
         <p>배우고 성장하는 것을 즐깁니다.</p>
-        <!--a로 변경후 note로 가는 버튼으로-->
         <button onclick="scrollToSection('projects')">
           프로젝트 보러 가기
         </button>
@@ -50,8 +51,19 @@
       <div class="inner">
         <h2 class="title">About Me</h2>
         <p>
-          HTML, CSS, JavaScript를 기반으로 TypeScript, React, Next.js까지 꾸준히
-          배우고 있습니다.
+          웹 퍼블리셔로서 HTML, CSS, JavaScript를 기반으로 웹 표준과 접근성을
+          고려한 마크업을 구현하고 있으며,<br />
+          여기서 멈추지 않고 프론트엔드 개발자로의 성장을 위해 TypeScript,
+          React, React Native, Next.js 등 최신 기술까지 꾸준히 학습하고
+          있습니다.
+        </p>
+        <p>
+          앞으로는 제가 만든 웹사이트를 많은 사람들이 편리하게 사용할 수 있도록
+          하고 싶습니다.
+        </p>
+        <p>
+          이를 위해 다양한 경험과 실력을 쌓기 위해 회사에서 성장하며, 그 성장을
+          바탕으로 회사의 발전에도 기여하고 싶습니다.
         </p>
       </div>
     </section>
@@ -67,8 +79,22 @@
             data-aos-once="true"
           >
             <h3>Project 1</h3>
-            <p>간단한 프로젝트 설명.</p>
-            <a href="#">GitHub 바로가기</a>
+            <a class="project-img" href=""
+              ><img src="img/starbucks-thumbnail.png" alt=""
+            /></a>
+            <p>
+              HTML, CSS, Javascript로 제작한 스타벅스 페이지. Swiper, GSAP을
+              이용하여 동적 UI구현.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/mimmizzang/Web-1-midQuest.git"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i>GitHub 레포</a
+            >
+            <a class="project-link" href="#"
+              ><i class="fa-solid fa-globe"></i>배포 페이지
+            </a>
           </div>
         </div>
         <div class="project-list">
@@ -160,10 +186,21 @@
     <section id="contact" class="section">
       <div class="inner">
         <h2 class="title">Contact</h2>
-        <p>이메일: fpahs0920@gmail.com</p>
-        <a href="https://github.com/mimmizzang" target="_blank">
-          <img class="github-btn" src="/github-logo.svg" alt="" />
-        </a>
+        <ul class="contact">
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>fpahs0920@gmail.com</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>010-4765-5272</span>
+          </li>
+          <li>
+            <a href="https://github.com/mimmizzang" target="_blank">
+              <img class="github-btn" src="/github-logo.svg" alt="" />
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 

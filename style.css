@@ -11,6 +11,9 @@ a {
   color: black;
   text-decoration: none;
 }
+li {
+  list-style: none;
+}
 img {
   display: block;
 }
@@ -74,9 +77,19 @@ header nav a:hover {
   padding: 80px 0;
 }
 
-/* 타이틀 공통*/
+/* 타이틀 공통 */
 .title {
   margin-bottom: 20px;
+}
+
+/* about 섹션 */
+#about p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+#about p:last-child {
+  margin-bottom: 0;
 }
 
 /* 프로젝트 섹션 */
@@ -89,15 +102,48 @@ header nav a:hover {
 }
 
 .project-item {
-  width: 40%;
   height: 100%;
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.5s;
+}
+.project-item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .project-item h3 {
   margin-bottom: 10px;
+}
+.project-item img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  transform: scale(0.95);
+  transition: transform 0.5s;
+}
+.project-item:hover img {
+  transform: scale(1);
+}
+.project-item .project-link {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+.project-item .project-link:hover {
+  background-color: #333;
+  color: white;
+}
+.project-item p {
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.project-item i {
+  margin-right: 5px;
 }
 
 /* 스킬 리스트 */
@@ -122,6 +168,21 @@ header nav a:hover {
   transform: scale(1.2);
 }
 
+/*contact 섹션*/
+.contact li {
+  margin-bottom: 10px;
+}
+.contact li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.contact li span {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.contact li a {
+  display: inline-block;
+}
 .github-btn {
   height: 50px;
   margin-top: 15px;

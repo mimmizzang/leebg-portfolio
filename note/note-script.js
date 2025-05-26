@@ -2,7 +2,7 @@
 const navSwiper = new Swiper(".nav-swiper", {
   slidesPerView: "auto",
   loop: true,
-  spaceBetween: 10,
+  spaceBetween: 5,
   autoplay: {
     delay: 2000,
     disableOnInteraction: true,
