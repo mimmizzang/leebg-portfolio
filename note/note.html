@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>개발 노트</title>
+    <title>스킬 노트</title>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
     <link rel="stylesheet" href="note-style.css" />
 
@@ -22,151 +20,84 @@
   <body>
     <header>
       <div class="inner">
-        <a href="../index.html" class="logo"><h1>My Portfolio</h1></a>
+        <a href="../index.html"><h1>My Portfolio</h1></a>
+
+        <a href="../index.html" class="logo">
+          <i class="fa-solid fa-house"></i>
+        </a>
       </div>
     </header>
 
-    <nav>
+    <main>
       <div class="inner">
-        <div class="nav-swiper swiper">
-          <div class="swiper-wrapper">
-            <a class="scroll swiper-slide" href="#html-css">html/css</a>
-            <a class="scroll swiper-slide" href="#javascript">javascript</a>
-            <a class="scroll swiper-slide" href="#typescript">typescript</a>
-            <a class="scroll swiper-slide" href="#react">react</a>
-            <a class="scroll swiper-slide" href="#next-js">next.js</a>
-            <a class="scroll swiper-slide" href="#git-github">git/github</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+        <ul class="nav">
+          <li class="on"><a href="*">ALL</a></li>
+          <li><a href=".language">Language</a></li>
+          <li><a href=".framework">Framework</a></li>
+          <li><a href=".animation">Animation</a></li>
+          <li><a href=".styling">Styling</a></li>
+          <li><a href=".tools">Tools</a></li>
+        </ul>
 
-    <section id="main">
-      <div class="inner">
-        <h2></h2>
-      </div>
-    </section>
+        <section>
+          <article class="language">
+            <a href="./language/test.html">
+              <div>
+                <!--이미지-->
+                <img src="../img/test1.png" alt="" />
+                <h2>note 1</h2>
+                <p>간단한 설명과 이미지.</p>
+              </div>
+            </a>
+          </article>
 
-    <!--글이 쌓이면 슬라이드-->
-    <section id="html-css" class="section">
-      <div class="inner">
-        <h2 class="title">HTML/CSS</h2>
-        <div class="cards">
-          <a href="./html-css/html-css.html" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="./bootstrap/test.html" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
-      </div>
-    </section>
+          <article class="framework">
+            <div>
+              <!--이미지-->
+              <img src="../img/test2.png" alt="" />
+              <h2>note 2</h2>
+              <p>간단한 설명과 이미지.</p>
+            </div>
+          </article>
 
-    <section id="javascript" class="section">
-      <div class="inner">
-        <h2 class="title">JAVASCRIPT</h2>
-        <div class="cards">
-          <a href="" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
-      </div>
-    </section>
+          <article class="animation">
+            <div>
+              <!--이미지-->
+              <img src="../img/test3.png" alt="" />
+              <h2>note 3</h2>
+              <p>간단한 설명과 이미지.</p>
+            </div>
+          </article>
 
-    <section id="typescript" class="section">
-      <div class="inner">
-        <h2 class="title">TYPESCRIPT</h2>
-        <div class="cards">
-          <a href="" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
-      </div>
-    </section>
+          <article class="styling">
+            <div>
+              <!--이미지-->
+              <img src="../img/test4.png" alt="" />
+              <h2>note 4</h2>
+              <p>간단한 설명과 이미지.</p>
+            </div>
+          </article>
 
-    <section id="react" class="section">
-      <div class="inner">
-        <h2 class="title">REACT</h2>
-        <div class="cards">
-          <a href="" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
-      </div>
-    </section>
+          <article class="tools">
+            <div>
+              <!--이미지-->
+              <img src="../img/test1.png" alt="" />
+              <h2>note 5</h2>
+              <p>간단한 설명과 이미지.</p>
+            </div>
+          </article>
 
-    <section id="next-js" class="section">
-      <div class="inner">
-        <h2 class="title">NEXT.JS</h2>
-        <div class="cards">
-          <a href="" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
+          <article class="language">
+            <div>
+              <!--이미지-->
+              <img src="../img/test2.png" alt="" />
+              <h2>note 6</h2>
+              <p>간단한 설명과 이미지.</p>
+            </div>
+          </article>
+        </section>
       </div>
-    </section>
-
-    <section id="git-github" class="section">
-      <div class="inner">
-        <h2 class="title">GIT/GITHUB</h2>
-        <div class="cards">
-          <a href="" class="card">
-            <h4>card 1</h4>
-            <p>간단한 설명 or 이미지</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 2</h4>
-            <p>간단한 설명</p>
-          </a>
-          <a href="" class="card">
-            <h4>card 3</h4>
-            <p>간단한 설명</p>
-          </a>
-        </div>
-      </div>
-    </section>
+    </main>
 
     <footer>
       <div class="inner">

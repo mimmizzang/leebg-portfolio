@@ -1,34 +1,48 @@
-// header nav 슬라이드 기능
-const navSwiper = new Swiper(".nav-swiper", {
-  slidesPerView: "auto",
-  loop: true,
-  spaceBetween: 5,
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: true,
-  },
+const frame = "section";
+const box = "article";
+const speed = "0.5s";
+const activeClass = "on";
+const btn = document.querySelectorAll("main ul li");
+let grid;
+
+window.addEventListener("load", () => {
+  init();
+  filter(btn);
 });
+
+//화면 초기화 함수 정의
+function init() {
+  grid = new Isotope(frame, {
+    itemSelector: box, //배치할 요소명
+    columnWidth: box, //너빗값을 구할 요소명
+    percentPosition: true,
+    transitionDuration: speed, //화면 재배치 시 요소가 움직이는 속도
+  });
+}
+
+//정렬 버튼 기능 함수 정의
+function filter(arr) {
+  for (let el of arr) {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      //변수 sort에 클릭한 대상의 자식인 a 요소의 href 속성값 저장
+      const sort = e.currentTarget.querySelector("a").getAttribute("href");
+
+      grid.arrange({
+        filter: sort,
+      });
+
+      for (let el of arr) {
+        el.classList.remove(activeClass);
+      }
+
+      e.currentTarget.classList.add(activeClass);
+    });
+  }
+}
 
 // GSAP와 ScrollToPlugin 등록
 gsap.registerPlugin(ScrollToPlugin);
-
-// 모든 링크에 대해 클릭 이벤트 처리
-const navLinks = document.querySelectorAll("nav .scroll");
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault(); // 기본 링크 동작 방지
-
-    const targetId = link.getAttribute("href").substring(1); // href에서 #을 제외한 ID
-    const targetElement = document.getElementById(targetId); // 해당 ID를 가진 엘리먼트
-
-    gsap.to(window, {
-      scrollTo: { y: targetElement, offsetY: 50 }, // 50px만큼 떨어져서 스크롤
-      duration: 1,
-      ease: "power2.out",
-    });
-  });
-});
 
 // 스크롤 업 버튼 기능
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");

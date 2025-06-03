@@ -1,0 +1,101 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #f9f9f9;
+  color: #333;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  background: white;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .header-links .logo {
+  margin-right: 20px;
+  font-size: 20px;
+  color: #858383;
+}
+header .header-links .logo:hover {
+  color: black;
+}
+
+main {
+  padding: 20px;
+}
+
+.note-detail {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+}
+
+.note-detail .note-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.note-detail .note-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.note-detail h2 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.note-detail p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.note-detail ul {
+  list-style: disc inside;
+  margin-bottom: 20px;
+}
+
+.note-detail pre {
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.note-detail pre code {
+  font-family: "Courier New", monospace;
+}
+
+footer {
+  background: #eee;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 13px;
+}
