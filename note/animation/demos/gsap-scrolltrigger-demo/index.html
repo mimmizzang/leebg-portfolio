@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP scrollTrigger Demo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!--스크롤 내리기위해 차지하는 배경-->
+    <div class="spacer">
+      <p>아래로 스크롤하세요 ↓</p>
+    </div>
+
+    <section class="scroll-section">
+      <div class="inner">
+        <img
+          class="texture1"
+          src="./img/gsap-scrolltrigger-texture1.png"
+          alt=""
+        />
+        <img
+          class="texture2"
+          src="./img/gsap-scrolltrigger-texture2.png"
+          alt=""
+        />
+        <img
+          class="picture1 left-img"
+          src="./img/gsap-scrolltrigger-picture1.jpg"
+          alt=""
+        />
+        <img
+          class="picture2 left-img"
+          src="./img/gsap-scrolltrigger-picture2.jpg"
+          alt=""
+        />
+        <div class="imgbox">
+          <img
+            class="text right-img"
+            src="./img/gsap-scrolltrigger-text1.png"
+            alt=""
+          />
+          <img
+            class="text right-img"
+            src="./img/gsap-scrolltrigger-text2.png"
+            alt=""
+          />
+          <a class="btn right-img" href="#">매장 찾기</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

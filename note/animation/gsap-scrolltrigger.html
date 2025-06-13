@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP scrollTrigger</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">GSAP ScrollTrigger</h1>
+
+          <h2>개요</h2>
+          <p>
+            GSAP의 ScrollTrigger는 요소가 스크롤 위치에 따라 애니메이션을
+            실행하거나 제어할 수 있게 해주는 플러그인입니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>요소 등장 애니메이션</li>
+            <li>좌우로 슬라이드 효과</li>
+            <li>ScrollTrigger의 trigger, start, toggleActions 속성 사용</li>
+          </ul>
+
+          <h2>사용한 예제</h2>
+          <iframe src="./demos/gsap-scrolltrigger-demo/index.html"> </iframe>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".left-img", {
+  scrollTrigger: {
+    trigger: ".scroll-section",
+    start: "top 80%",
+    toggleActions: "play none none reset",
+  },
+  x: -200,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.2,
+});
+
+gsap.from(".right-img", {
+  scrollTrigger: {
+    trigger: ".scroll-section",
+    start: "top 80%",
+    toggleActions: "play none none reset",
+  },
+  x: 200,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.2,
+});
+        </code></pre>
+
+          <h2>사용한 속성 설명</h2>
+          <ul>
+            <li>
+              <strong>trigger</strong>: 애니메이션이 시작될 기준 요소로, 해당
+              요소가 화면에 보일 때 애니메이션이 실행
+            </li>
+            <li>
+              <strong>start</strong>: 애니메이션이 언제 시작할지 위치를 지정하는
+              속성으로, 이 예제에서는 요소의 <code>top</code>이 뷰포트
+              <code>80%</code> 지점에 닿을 때 시작
+            </li>
+            <li>
+              <strong>toggleActions</strong>: 스크롤 변화에 따라 애니메이션 동작
+              방식을 지정하는 속성으로,
+              <code>"play none none reset"</code> 설정으로 아래로 스크롤 시
+              애니메이션 실행, 다시 위로 스크롤 시 초기화되는 설정
+            </li>
+          </ul>
+
+          <h2>주로 사용하는 ScrollTrigger 속성</h2>
+          <ul>
+            <li>
+              <strong>end</strong>: 애니메이션 종료 위치 설정 (예:
+              <code>"bottom top"</code>)
+            </li>
+            <li>
+              <strong>markers</strong>: 디버깅용 가이드라인 표시
+              (<code>true</code>로 설정 시 화면에 기준선 표시)
+            </li>
+            <li>
+              <strong>scrub</strong>: 스크롤 진행과 애니메이션 동기화 (예:
+              <code>true</code> 또는 숫자 사용)
+            </li>
+            <li>
+              <strong>pin</strong>: 요소를 스크롤 동안 고정하여 패럴럭스 효과 등
+              구현 가능
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            스크롤 시 특정 섹션에 진입할 때 좌우에서 이미지가 자연스럽게
+            나타나는 효과를 구현하기 위해 ScrollTrigger를 활용했습니다. 단순히
+            <code>transform</code> 속성으로도 구현할 수 있었지만, 라이브러리를
+            직접 사용해보고 싶었고, ScrollTrigger의 다양한 속성 덕분에 훨씬
+            간단하고 직관적으로 작업할 수 있었습니다.
+          </p>
+          <p>
+            특정 구간에서 애니메이션 실행을 멈추거나 초기화하고, 요소를 고정하는
+            등의 다양한 응용도 가능하다는 점이 인상적이었습니다. 앞으로 다른
+            프로젝트를 만들 때도 적극적으로 활용할 계획입니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 기술은 스타벅스 페이지 프로젝트의 섹션 스크롤 애니메이션에
+            적용했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/"
+                target="_blank"
+                >GSAP-ScrollTrigger</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
