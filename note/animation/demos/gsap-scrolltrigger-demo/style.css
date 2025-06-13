@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+.btn {
+  width: 110px;
+  padding: 10px;
+  color: rgb(54, 52, 52);
+  border: solid 2px rgb(54, 52, 52);
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.btn:hover {
+  background-color: rgb(54, 52, 52);
+  color: white;
+  transition: 0.3s;
+}
+
+.spacer {
+  height: 100vh;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spacer p {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+section {
+  height: 400px;
+  background-image: url(./img/gsap-scrolltrigger-bg.jpg);
+}
+section .inner {
+  width: 1100px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+section .texture1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+section .texture2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+section .picture1 {
+  position: absolute;
+  left: 0;
+  top: -50px;
+  border-radius: 50%;
+}
+section .picture2 {
+  position: absolute;
+  left: 250px;
+  top: 150px;
+  border-radius: 50%;
+}
+section .imgbox {
+  position: absolute;
+  top: 120px;
+  right: 170px;
+}
+section .imgbox .text {
+  margin-bottom: 20px;
+}
