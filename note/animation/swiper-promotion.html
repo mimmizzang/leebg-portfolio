@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Slide</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">Swiper Slide</h1>
+
+          <h2>개요</h2>
+          <p>
+            Swiper는 터치 슬라이드 기능을 제공하는 오픈 소스 라이브러리로, 웹 및
+            모바일 환경에서 부드러운 슬라이드 UI를 손쉽게 구현할 수 있습니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>가로 방향 이미지 슬라이드 구현</li>
+            <li>
+              자동 재생(<code>autoplay</code>), 반복 재생(<code>loop</code>)
+              설정
+            </li>
+            <li>
+              슬라이드 이동 버튼(<code>navigation</code>),
+              페이지네이션(<code>pagination</code>) 추가
+            </li>
+          </ul>
+
+          <h2>사용한 예제</h2>
+          <iframe
+            class="swiper-promotion"
+            src="./demos/swiper-promotion-demo/index.html"
+          >
+          </iframe>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+var swiper = new Swiper("section .mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el: "section .swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: "section .swiper-button-next",
+    prevEl: "section .swiper-button-prev",
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+});
+        </code></pre>
+
+          <h2>사용한 속성 설명</h2>
+          <ul>
+            <li>
+              <strong>slidesPerView</strong>: 한 화면에 표시할 슬라이드 개수
+            </li>
+            <li><strong>spaceBetween</strong>: 슬라이드 사이 간격 (px)</li>
+            <li>
+              <strong>centeredSlides</strong>: 현재 활성화된 슬라이드가 중앙에
+              위치하도록 설정
+            </li>
+            <li>
+              <strong>loop</strong>: 슬라이드가 끝나면 처음으로 돌아가면서 반복
+              재생
+            </li>
+            <li>
+              <strong>pagination.clickable</strong>: 페이지네이션(하단 점)을
+              클릭해서 슬라이드 이동 가능
+            </li>
+            <li>
+              <strong>navigation.nextEl / prevEl</strong>: 이전/다음 버튼 설정
+            </li>
+            <li>
+              <strong>autoplay.delay</strong>: 슬라이드가 자동으로 전환되는
+              시간(ms) 설정
+            </li>
+            <li>
+              <strong>autoplay.disableOnInteraction</strong>: 사용자가 버튼 클릭
+              등으로 슬라이드 조작 시 자동재생 유지 여부
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            이미지가 자동으로 부드럽게 슬라이드 되는 효과를 구현하기 위해
+            Swiper.js를 활용했습니다.<br />
+            기본 기능 외에도 다양한 옵션들이 내장되어 있어서 복잡한 기능도
+            원하는 형태로 쉽게 커스터마이징할 수 있었습니다.
+          </p>
+          <p>
+            자동으로 넘어가면서 무한 반복되는 기능과 버튼이나 페이지네이션을
+            추가해서 원하는 슬라이드로 바로 이동할 수 있는 부분도 편리했습니다.
+          </p>
+          <p>
+            앞으로도 배너나 프로모션처럼 반복적으로 보여줘야 하는 콘텐츠에는
+            계속 활용하게 될 것 같고, 다른 프로젝트에서도 다양한 형태로
+            적용해보면 재밌을 것 같습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 기술은 스타벅스 페이지 프로젝트의 프로모션 이미지 슬라이드 구현에
+            활용했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a href="https://swiperjs.com/swiper-api" target="_blank"
+                >Swiper.js</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
