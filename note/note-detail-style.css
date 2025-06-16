@@ -75,6 +75,9 @@ main {
   display: block;
   margin: 30px 0;
 }
+.note-detail iframe.swiper-promotion {
+  height: 690px;
+}
 
 .note-detail pre {
   background: #f4f4f4;
