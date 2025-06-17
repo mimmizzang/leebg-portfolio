@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Coverflow Effect</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">Swiper Coverflow Effect</h1>
+
+          <h2>개요</h2>
+          <p>
+            Swiper의 coverflowEffect를 이용하여 슬라이드에 3D 입체 효과를 적용할
+            수 있습니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>입체적인 <code>coverflow</code> 효과로 슬라이드 강조</li>
+            <li>
+              현재 위치를 숫자로 표시하는 <code>fraction</code> 페이지네이션
+            </li>
+          </ul>
+
+          <h2>사용한 예제</h2>
+          <iframe
+            class="swiper-coverflow"
+            src="./demos/swiper-coverflow-demo/index.html"
+          >
+          </iframe>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+const swiper = new Swiper(".wrap", {
+  direction: "horizontal",
+  slidesPerView: "auto",
+  spaceBetween: 0,
+  centeredSlides: true,
+  grabCursor: true,
+  loop: true,
+  speed: 1000,
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: -100,
+    depth: 400,
+    modifier: 1,
+    slideShadows: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 1000,
+    disableOnInteraction: true,
+  },
+});
+        </code></pre>
+
+          <h2>사용한 속성 설명</h2>
+          <ul>
+            <li>
+              <strong>effect</strong>: 슬라이드가 전환될 때 어떤 시각 효과로
+              보여줄지 설정하는 속성으로, <code>"coverflow"</code> 설정으로 3D로
+              회전하며 중앙 슬라이드 강조 (입체적 효과)
+            </li>
+            <li>
+              <strong>coverflowEffect</strong>:
+              <code>effect: "coverflow"</code> 일 때, 입체 회전 효과의 세부
+              옵션을 설정하는 객체
+            </li>
+            <li>
+              <strong>coverflowEffect.rotate</strong>: 슬라이드 회전 각도 (값이
+              클수록 회전 효과가 강해짐)
+            </li>
+            <li>
+              <strong>coverflowEffect.stretch</strong>: 슬라이드 간격 조절
+              (양수: 벌어짐 / 음수: 붙음)
+            </li>
+            <li>
+              <strong>coverflowEffect.depth</strong>: 슬라이드의 깊이(거리) →
+              값이 클수록 입체 효과가 큼
+            </li>
+            <li>
+              <strong>coverflowEffect.modifier</strong>: 전체 효과 강도 비율
+              (값이 클수록 효과가 더 강조됨)
+            </li>
+            <li>
+              <strong>coverflowEffect.slideShadow</strong>: 슬라이드 그림자 표시
+              여부
+            </li>
+            <li>
+              <strong>pagination.type</strong>: 페이지네이션 타입 속성으로,
+              <code>"fraction"</code> 설정으로 숫자 형태로 표시
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            Swiper.js의 coverflow 효과를 활용해 일반적인 슬라이드가 아닌 입체감
+            있는 전환 효과를 구현할 수 있었습니다.<br />
+            기본 슬라이드보다 훨씬 시각적으로 흥미롭고 동적인 느낌을 줄 수 있어
+            사용자의 주목도를 높이는 데 효과적이라고 생각합니다.
+          </p>
+          <p>
+            다양한 옵션 값들을 바꿔보면서 슬라이드가 어느 정도 기울어지거나 겹쳐
+            보이는 느낌을 직접 조절할 수 있었는데, 이런 부분이 재밌었습니다.
+          </p>
+          <p>
+            앞으로 사용자의 시선을 끌고 싶은 영역에 이런 효과를 응용해서 다양한
+            스타일을 만들어보면 좋을 것 같습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 기술은 Swiper 페이지 프로젝트의 이미지 슬라이드 구현에
+            활용했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://swiperjs.com/swiper-api#coverflow-effect"
+                target="_blank"
+                >Swiper.js - Coverflow Effect</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

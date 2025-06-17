@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS FadeIn</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">CSS FadeIn</h1>
+
+          <h2>개요</h2>
+          <p>
+            fade-in 효과란 요소가 점점 불투명해지면서 부드럽게 나타나는 시각적
+            효과입니다.<br />
+            CSS의 <code>@keyframes</code>와 <code>animation</code> 속성을
+            사용하여 부드럽게 나타나는 fade-in 효과를 구현했습니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li><code>@keyframes</code>를 이용해 투명도 변화를 정의</li>
+            <li><code>animation</code> 속성으로 애니메이션 적용</li>
+          </ul>
+
+          <h2>사용한 예제</h2>
+          <iframe src="./demos/css-fadein-demo/index.html"> </iframe>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+section .inner img {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.cup1 {
+  animation-delay: 0.5s;
+}
+.cup2 {
+  animation-delay: 1s;
+}
+.spoon {
+  animation-delay: 1.5s;
+}
+        </code></pre>
+
+          <h2>사용한 속성 설명</h2>
+          <ul>
+            <li>
+              <strong>@keyframes</strong>: 애니메이션 동작을 정의하는 규칙
+            </li>
+            <li>
+              <strong>animation-name</strong>: 적용할 애니메이션 이름 설정
+            </li>
+            <li>
+              <strong>animation-duration</strong>: 애니메이션 실행 시간 (초)
+            </li>
+            <li>
+              <strong>animation-timing-function</strong>: 애니메이션 속도 곡선
+            </li>
+            <li>
+              <strong>animation-fill-mode</strong>: 애니메이션 종료 후 적용 상태
+              설정
+            </li>
+            <li>
+              <strong>animation-delay</strong>: 애니메이션 시작까지의 지연 시간
+            </li>
+          </ul>
+
+          <h2>주로 사용하는 속성</h2>
+          <ul>
+            <li>
+              <strong>animation-iteration-count</strong>: 애니메이션 반복 횟수
+            </li>
+            <li>
+              <strong>animation-direction</strong>: 애니메이션 반복 시 방향
+            </li>
+            <li>
+              <strong>animation-play-state</strong>: 애니메이션 실행 상태 제어
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            CSS만으로도 이미지가 하나씩 자연스럽게 등장하는 fadeIn 효과를 쉽게
+            구현할 수 있었습니다.
+          </p>
+          <p>
+            하지만 더 복잡한 애니메이션 조합이나 스크롤 연동 효과 같은 건
+            GSAP같은 라이브러리를 사용하면 더 정교하게 만들 수 있을 것 같습니다.
+          </p>
+          <p>
+            페이지가 열릴 때 집중도를 높이고 자연스러운 흐름을 만들어 주는
+            효과라 생각해서 앞으로 다용한 곳에 응용해보고 싶습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 기술은 스타벅스 페이지 프로젝트의 이미지 fadeIn 효과 구현에
+            활용했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/ko/docs/Web/CSS/@keyframes"
+                target="_blank"
+                >@keyframes</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_animations/Using_CSS_animations"
+                target="_blank"
+                >CSS animation</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
