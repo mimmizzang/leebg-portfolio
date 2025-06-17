@@ -78,6 +78,9 @@ main {
 .note-detail iframe.swiper-promotion {
   height: 690px;
 }
+.note-detail iframe.swiper-coverflow {
+  height: 590px;
+}
 
 .note-detail pre {
   background: #f4f4f4;
