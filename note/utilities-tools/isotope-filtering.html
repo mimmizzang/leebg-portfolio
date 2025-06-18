@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isotope Filtering</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">Isotope Filtering</h1>
+
+          <h2>개요</h2>
+          <p>
+            Isotope는 웹 페이지 내 요소들을 동적으로 배치하고, 정렬하거나
+            필터링할 수 있게 도와주는 레이아웃 라이브러리입니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>요소들이 벽돌처럼 자연스럽게 쌓이는 그리드 레이아웃 구성</li>
+            <li>카테고리에 따라 필요한 요소만 보여주는 필터링 기능</li>
+            <li>
+              Isotope의 <code>itemSelector</code>, <code>filter</code>,
+              <code>transitionDuration</code> 속성 사용
+            </li>
+          </ul>
+
+          <h2>사용한 예제</h2>
+          <iframe src="./demos/isotope-filtering-demo/index.html"> </iframe>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+let grid;
+
+window.addEventListener("load", () => {
+  init();
+  filter(document.querySelectorAll("main ul li"));
+});
+
+function init() {
+  grid = new Isotope("section", {
+    itemSelector: "article",
+    columnWidth: "article",
+    percentPosition: true,
+    transitionDuration: "0.5s",
+  });
+}
+
+function filter(arr) {
+  for (let el of arr) {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const sort = e.currentTarget.querySelector("a").getAttribute("href");
+
+      grid.arrange({
+        filter: sort,
+      });
+
+      for (let el of arr) {
+        el.classList.remove("on");
+      }
+
+      e.currentTarget.classList.add("on");
+    });
+  }
+}
+        </code></pre>
+
+          <h2>사용한 속성 설명</h2>
+          <ul>
+            <li>
+              <strong>itemSelector</strong>: 레이아웃 내에서 정렬 대상으로
+              사용할 요소를 선택하는 선택자
+            </li>
+            <li>
+              <strong>columnWidth</strong>: 레이아웃 계산 시 기준이 될 요소 너비
+              지정
+            </li>
+            <li>
+              <strong>percentPosition</strong>: CSS의 퍼센트 단위 위치 계산을
+              정확하게 반영
+            </li>
+            <li>
+              <strong>transitionDuration</strong>: 필터 적용 등 레이아웃 재배치
+              시 애니메이션 효과의 실행 시간
+            </li>
+            <li>
+              <strong>filter</strong>: 어떤 요소만 보여줄지 필터링할 때 사용하는
+              값
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            Isotope.js의 filter 속성을 활용해 다양한 요소들을 깔끔하게 배치하고,
+            카테고리별로 필요한 콘텐츠만 보여줄 수 있는 동적인 필터링 기능을
+            구현할 수 있었습니다.
+          </p>
+          <p>
+            사용자가 원하는 주제나 분류에 따라 콘텐츠를 즉시 걸러내 보여주는
+            인터랙티브한 UI는 사용자의 편의성을 크게 향상시켜 보다 쾌적한 경험을
+            제공한다고 느꼈습니다.
+          </p>
+          <p>
+            이미지 갤러리, 블로그 글, 상품 리스트 등 다양한 콘텐츠를
+            카테고리별로 분류하고 방문자가 쉽게 원하는 정보를 찾을 수 있도록
+            하는 데 이러한 필터링 효과를 활용하면 좋을 것 같습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 기술은 반응형 웹 페이지 프로젝트와 포트폴리오 note 페이지의
+            필터링 구현에 활용했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a href="https://isotope.metafizzy.co/filtering">
+                isotope.js - filtering
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
