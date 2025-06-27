@@ -82,6 +82,15 @@ main {
   height: 590px;
 }
 
+.scss-code {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.scss-code > div {
+  flex: 1;
+}
+
 .note-detail pre {
   background: #f4f4f4;
   padding: 15px;

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS @import</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">SCSS @import</h1>
+
+          <h2>개요</h2>
+          <p>
+            SCSS에서 @import는 여러 SCSS 파일을 하나로 합쳐주는 기능입니다.<br />
+            이를 통해 스타일을 기능별, 파트별로 나누어 관리하고, 최종 빌드 시 한
+            CSS 파일로 컴파일할 수 있게 도와줍니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>여러 파일 가져오기</li>
+            <li>파일 분할(Partials)</li>
+          </ul>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+/*main.scss*/
+
+@import "variables";
+@import "reset";
+@import "mixin";
+@import "button";
+@import "components";
+@import "header";
+@import "layout";
+@import "footer";
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              위처럼 작성하면 각각 파일의 내용을 불러와서 현재 파일에
+              포함시킵니다.
+            </li>
+            <li>
+              보통 main.scss에서 모든 SCSS 파일을 @import하여 중앙에서
+              관리합니다.
+            </li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>컴파일 전</h2>
+              <pre><code>
+...
+
+  ├─ scss
+  │  ├─ variables.scss
+  │  ├─ reset.scss
+  │  ├─ mixin.scss
+  │  ├─ button.scss
+  │  ├─ components.scss
+  │  ├─ header.scss
+  │  ├─ layout.scss
+  │  ├─ footer.scss
+  │  └─ main.scss
+
+...
+        </code></pre>
+            </div>
+            <div>
+              <h2>컴파일 후</h2>
+              <pre><code>
+...
+  ├─ css
+  │  ├─ variables.css
+  │  ├─ reset.css
+  │  ├─ mixin.css
+  │  ├─ button.css
+  │  ├─ components.css
+  │  ├─ header.css
+  │  ├─ layout.css
+  │  ├─ footer.css
+  │  └─ main.css
+  ├─ scss
+  │  ├─ ...
+...
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              프로젝트 규모가 커지면 파일들을 각 기능과 부분으로 나눠 유지
+              보수가 쉽도록 관리하게 됩니다.
+            </li>
+            <li>
+              파일이 점점 많아지는데, 모든 파일이 컴파일 시 각각의 .css 파일로
+              나눠서 저장된다면 불필요한 결과물이 생기게 됩니다.
+            </li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>컴파일 전</h2>
+              <pre><code>
+...
+  ├─ scss
+  │  ├─ _variables.scss
+  │  ├─ _reset.scss
+  │  ├─ _mixin.scss
+  │  ├─ _button.scss
+  │  ├─ _components.scss
+  │  ├─ _header.scss
+  │  ├─ _layout.scss
+  │  ├─ _footer.scss
+  │  └─ main.scss
+...
+        </code></pre>
+            </div>
+            <div>
+              <h2>컴파일 후</h2>
+              <pre><code>
+...
+
+  ├─ css
+  │  └─ main.css
+  ├─ scss
+  │  ├─_variables.scss
+  │  ├─_reset.scss
+  │  ├─ ...
+  │  ├─ _footer.scss
+  │  └─ main.scss
+
+...
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              파일 이름이 언더스코어(_)로 시작하면 SCSS가 partial 파일(조각
+              파일)로 인식합니다.
+            </li>
+            <li>
+              단독으로 컴파일되지 않고, 오직 @import로만 포함되도록 처리됩니다.
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            CSS에서는 각 기능별로 스타일을 나눠서 작성해도, HTML에
+            &lt;link&gt;로 각각 연결하거나 직접 병합해야 하는 번거로움이
+            있었습니다.
+          </p>
+          <p>
+            반면 SCSS에서는 @import를 사용해 필요한 스타일 파일들을 하나의 메인
+            파일로 불러올 수 있어서 관리가 훨씬 편리했고,<br />
+            컴파일 시 단일 CSS 파일로 생성되어 배포나 유지보수에도 효율적이라는
+            장점을 느꼈습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/at-rules/import/"
+                target="_blank"
+                >SCSS @import</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS Variables</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">SCSS Variables</h1>
+
+          <h2>개요</h2>
+          <p>
+            변수로 사용 가능한 형태는 숫자, 문자, 색상, 논리, null, lists, maps
+            입니다.<br />
+            변수 이름 앞에는 항상 $를 붙입니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>변수 유효 범위</li>
+            <li>변수 재할당</li>
+            <li>!global</li>
+            <li>!default</li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>SCSS 코드</h2>
+              <pre><code>
+$btn-color: rgb(53, 52, 52); // black 계열
+.btn {
+  color: $btn-color;
+  border: 2px solid $btn-color;
+  &:hover {
+    background-color: $btn-color;
+    color: white;
+  }
+}
+.title {
+  .btn {
+    $btn-color: rgb(94, 30, 30); // brown 계열
+    color: $btn-color;
+    border: 2px solid $btn-color;
+    &:hover {
+      background-color: $btn-color;
+      color: white;
+    }
+  }
+}
+.color {
+  color: $btn-color; // black 계열
+}
+        </code></pre>
+            </div>
+            <div>
+              <h2>CSS 코드</h2>
+              <pre><code>
+.btn {
+  color: rgb(53, 52, 52);
+  border: 2px solid rgb(53, 52, 52);
+}
+
+.btn:hover {
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
+
+.title .btn {
+  color: rgb(94, 30, 30);
+  border: 2px solid rgb(94, 30, 30);
+}
+
+.title .btn:hover {
+  background-color: rgb(94, 30, 30);
+  color: white;
+}
+
+.color {
+  color: rgb(53, 52, 52);
+}
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              변수는 선언된 블록({}) 내에서만 유효범위를 가집니다. (brown 계열
+              $btn-color는 .title .btn 범위에서만)
+            </li>
+            <li>
+              변수에 변수를 다시 할당할 수 있습니다. (black 계열이었던
+              $btn-color를 brown 계열로 재할당)
+            </li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>SCSS 코드</h2>
+              <pre><code>
+.box1 {
+  $color: red !global;
+  background: $color;
+}
+.box2 {
+  background: $color;
+}
+.box3 {
+  $color: blue !default;
+  background: $color;
+}
+        </code></pre>
+            </div>
+            <div>
+              <h2>CSS 코드</h2>
+              <pre><code>
+.box1 {
+  background: red;
+}
+
+.box2 {
+  background: red;
+}
+
+.box3 {
+  background: red;
+}
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              <strong>!global</strong>: 변수를 전역 범위(global scope)에 선언할
+              때 사용합니다. 중첩된 범위에서 변수를 선언해도 !global을 붙이면
+              전역 변수로 저장됩니다.
+            </li>
+            <li>
+              <strong>!default</strong>: 변수가 선언되지 않았을 때만 값을
+              지정합니다. 이미 값이 있으면 덮어쓰지 않고 유지합니다.
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            SCSS는 자주 쓰는 값들을 변수로 관리할 수 있어 스타일 작업이 훨씬
+            효율적이었습니다.
+          </p>
+          <p>
+            초기 설정 파일에서 공통 변수들을 잘 정리해두고, 필요하다면 !global,
+            !default 같은 기능도 변수 범위나 재할당에 활용할 계획입니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/variables/"
+                target="_blank"
+                >SCSS Variables</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
