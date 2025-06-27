@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS Nesting</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">SCSS Nesting</h1>
+
+          <h2>개요</h2>
+          <p>
+            Sass의 유용한 기능중 하나는 중첩(Nesting) 기능입니다.<br />
+            상위 선택자를 반복해서 쓰지않고 좀 더 편리하게 복잡한 구조를 작성할
+            수 있습니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>중첩(Nesting)</li>
+            <li>Ampersand(&)</li>
+            <li>@at-root</li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>SCSS 코드</h2>
+              <pre><code>
+.footer_text {
+  margin-top: 30px;
+  text-align: center;
+
+  span {
+    font-size: 12px;
+    color: gray;
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+        </code></pre>
+            </div>
+            <div>
+              <h2>CSS 코드</h2>
+              <pre><code>
+.footer_text {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer_text span {
+  font-size: 12px;
+  color: gray;
+  margin-right: 25px;
+}
+
+.footer_text span:last-child {
+  margin-right: 0;
+}
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              <strong>중첩(Nesting)</strong>: 반복되는 상위 선택자를 생략하고,
+              계층 구조에 따라 중괄호 {} 안에 하위 선택자를 중첩해 작성할 수
+              있는 기능
+            </li>
+            <li>
+              <strong>Ampersand(&)</strong>: & 키워드가 참조한 상위 선택자로
+              치환되는 기능
+            </li>
+          </ul>
+
+          <div class="scss-code">
+            <div>
+              <h2>SCSS 코드</h2>
+              <pre><code>
+.message {
+  color: black;
+
+  @at-root .global-message {
+    color: red;
+    font-weight: bold;
+  }
+}
+        </code></pre>
+            </div>
+            <div>
+              <h2>CSS 코드</h2>
+              <pre><code>
+.message {
+  color: black;
+}
+
+.global-message {
+  color: red;
+  font-weight: bold;
+}
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              <strong>@at-root</strong>: 중첩 구조에서 상위로 빠져나가는 기능
+            </li>
+            <li>
+              조건부 스타일, 구조적 관리, 컴파일 제어 등 여러 경우에도 효과적인
+              기능
+            </li>
+            <li>코드는 지역적으로 위치, 결과는 전역으로</li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            SCSS의 중첩 기능을 활용하니 반복 코드를 줄일 수 있어 훨씬 깔끔하고
+            작성이 편했습니다.<br />
+            특히 상위 선택자가 복잡할 때 코드 가독성이 좋아지고, 재사용할 때도
+            효율적이라는 걸 느꼈습니다.
+          </p>
+          <p>
+            실제 프로젝트에서는 주로 &와 일반 중첩 정도만 사용했지만, 공식
+            문서를 참고해 @at-root도 함께 실습하며 구조에 대한 이해도를 높일 수
+            있었습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/style-rules/#nesting"
+                target="_blank"
+                >SCSS Nesting</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/at-rules/at-root/"
+                target="_blank"
+                >SCSS @at-root</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
