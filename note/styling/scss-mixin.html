@@ -31,61 +31,102 @@
           <h1 class="note-title">SCSS @mixin</h1>
 
           <h2>개요</h2>
-          <p></p>
+          <p>
+            SCSS의 @mixin은 자주 사용하는 스타일 블록을 재사용 가능하게 만드는
+            기능입니다.<br />
+            마치 함수처럼 스타일을 정의하고, 필요한 곳에서 @include로 호출해서
+            사용하는 방식입니다.
+          </p>
 
           <h2>주요 내용</h2>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>@mixin</li>
+            <li>@include</li>
           </ul>
 
           <div class="scss-code">
             <div>
               <h2>SCSS 코드</h2>
               <pre><code>
-
+$main-black: rgb(53, 52, 52);
+$deep-brown: rgb(94, 30, 30);
+@mixin button-style(
+  $color,
+  $bg: transparent,
+  $hover-text: white,
+  $hover-bg: $color
+) {
+  color: $color;
+  background-color: $bg;
+  border: 2px solid $color;
+  &:hover {
+    background-color: $hover-bg;
+    color: $hover-text;
+  }
+}
+.btn {
+  @include button-style($main-black);
+}
+.title {
+  .btn {
+    @include button-style($deep-brown);
+  }
+}
         </code></pre>
             </div>
             <div>
               <h2>CSS 코드</h2>
               <pre><code>
+.btn {
+  color: rgb(53, 52, 52);
+  background-color: transparent;
+  border: 2px solid rgb(53, 52, 52);
+}
 
+.btn:hover {
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
+
+.title .btn {
+  color: rgb(94, 30, 30);
+  background-color: transparent;
+  border: 2px solid rgb(94, 30, 30);
+}
+
+.title .btn:hover {
+  background-color: rgb(94, 30, 30);
+  color: white;
+}
         </code></pre>
             </div>
           </div>
 
           <h2>속성 설명</h2>
           <ul>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <div class="scss-code">
-            <div>
-              <h2>SCSS 코드</h2>
-              <pre><code>
-
-        </code></pre>
-            </div>
-            <div>
-              <h2>CSS 코드</h2>
-              <pre><code>
-
-        </code></pre>
-            </div>
-          </div>
-
-          <h2>속성 설명</h2>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>@mixin 지시어를 이용하여 스타일을 정의합니다.</li>
+            <li>@include 지시어를 이용하여 선언된 mixin을 사용합니다.</li>
+            <li>
+              mixin은 선택자를 포함 가능하고 상위(부모) 요소 참조(&)도 할 수
+              있습니다.
+            </li>
+            <li>mixin은 함수처럼 인수를 가질 수 있습니다.</li>
+            <li>
+              인수는 기본값을 가질 수 있습니다. @include 포함 단계에서 별도의
+              인수가 전달되지 않으면 기본값이 사용됩니다.
+            </li>
           </ul>
 
           <h2>나의 생각 및 응용</h2>
-          <p></p>
-          <p></p>
+          <p>
+            SCSS의 @mixin을 사용하니 반복되는 스타일을 줄이고, 코드가 훨씬
+            간결해졌습니다.
+          </p>
+          <p>
+            매개변수로 스타일을 조절할 수 있어 다양한 경우에 쉽게 재사용할 수
+            있었고, 공통적으로 적용되는 스타일이 많은 프로젝트일수록 mixin은 꼭
+            쓰게 되는 기능인 것 같습니다.
+          </p>
 
           <h2>기술 적용 사례</h2>
           <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
@@ -93,10 +134,11 @@
           <h2>관련 자료</h2>
           <ul>
             <li>
-              <a href="" target="_blank"></a>
-            </li>
-            <li>
-              <a href="" target="_blank"></a>
+              <a
+                href="https://sass-lang.com/documentation/at-rules/mixin/"
+                target="_blank"
+                >SCSS @mixin</a
+              >
             </li>
           </ul>
         </section>
