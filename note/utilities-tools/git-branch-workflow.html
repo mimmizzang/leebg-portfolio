@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git branch & workflow</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../note-detail-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">Git branch & workflow</h1>
+
+          <h2>개요</h2>
+          <p>
+            Git은 버전 관리를 위한 분산 시스템으로, 다양한 브랜치 전략과 협업
+            흐름을 통해 안정적인 프로젝트 관리를 가능하게 합니다.<br />Git을
+            활용한 프로젝트 버전 관리를 위해 main, dev, docs 브랜치로 나눠
+            전략적으로 작업을 진행했습니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>main: 실제 서비스로 배포되는 안정된 버전</li>
+            <li>dev: 개발 중인 기능들을 통합하는 브랜치</li>
+            <li>docs/브랜치: 개별 기능 개발을 위한 작업 브랜치</li>
+            <li>merge로 작업 브랜치 ➝ dev ➝ main 순 병합</li>
+          </ul>
+
+          <h2>브랜치 구조</h2>
+          <img
+            src="./demos/git-branch-workflow-demo/img/git-workflow-image.png"
+            alt=""
+          />
+
+          <h2>예제 코드</h2>
+          <pre><code>
+git checkout main
+git pull origin main # 혹시 모를 원격 main의 변경사항을 가져옴
+git branch dev       # 로컬에 dev 브랜치 생성
+git push origin dev  # dev 브랜치를 원격에 푸시
+
+git checkout dev
+git pull origin dev # 항상 dev 브랜치를 최신으로 유지
+git checkout -b docs/git-branch-workflow # 새로운 작업 브랜치 생성 
+# ... 작업, add, commit ...
+
+git checkout dev
+git pull origin dev # 병합 전 dev 최신화
+git merge docs/git-branch-workflow
+git push origin dev
+git branch -d docs/git-branch-workflow
+git push origin --delete docs/git-branch-workflow # 원격 작업 브랜치 삭제
+git fetch --prune origin # 로컬 추적 브랜치 정리
+
+git checkout main
+git pull origin main # 혹시 main에 다른 변경사항이 있었다면 가져옴
+git merge dev # dev 브랜치 내용을 main에 병합
+git push origin main # main 브랜치를 원격에 푸시 (배포)
+        </code></pre>
+
+          <h2>사용한 명령어</h2>
+          <ul>
+            <li><strong>checkout -b</strong>: 새 브랜치 생성 후 전환</li>
+            <li><strong>merge</strong>: 하나의 브랜치를 현재 브랜치와 병합</li>
+            <li>
+              <strong>pull</strong>: 원격 저장소의 변경사항을 로컬 저장소로
+              가져와서 병합
+            </li>
+          </ul>
+
+          <h2>주로 사용하는 명령어</h2>
+          <ul>
+            <li>
+              <strong>reset</strong>: 브랜치의 히스토리를 이전 상태로 되돌리는
+              명령어. 특정 커밋으로 되돌리고 이후 커밋 이력을 재설정
+            </li>
+            <li>
+              <strong>stash</strong>: 다른 브랜치로 체크아웃하기 전에 현재
+              작업내용을 저장하는 임시 저장소. 언제든지 복구 가능
+            </li>
+            <li>
+              <strong>rebase</strong>: 커밋 이력을 재작성 하는 강력한 명령어.
+              특정 브랜치의 커밋들을 다른 브랜치의 최신 커밋 위에 다시 쌓는
+              작업을 수행. 선형적이고 깔끔한 커밋 이력을 만들기 위함
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            처음에는 Git의 브랜치 흐름이 어려웠지만 단순히 add, commit, push만
+            사용하는 게 아니라 브랜치를 나눠서 관리하니 훨씬 깔끔하고 유지보수가
+            쉬웠습니다.<br />
+            브랜치를 병합할 때 순서를 명확히 하는게 중요했고 이런 구조가
+            프로젝트 관리에 큰 도움이 됐습니다.
+          </p>
+          <p>
+            앞으로는 겁먹지 않고 reset, stash, rebase 같은 정리된 관리 방식도
+            적극 사용할 계획입니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>
+            이 Git 전략은 실제 포트폴리오에 적용해 깔끔한 브랜치 흐름과 커밋
+            관리를 경험했습니다.
+          </p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a href="https://git-scm.com/book/ko/v2" target="_blank"
+                >Git book</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://git-scm.com/book/ko/v2/Git-%eb%b8%8c%eb%9e%9c%ec%b9%98-%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%9e%80-%eb%ac%b4%ec%97%87%ec%9d%b8%ea%b0%80"
+                target="_blank"
+                >Git branch</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
