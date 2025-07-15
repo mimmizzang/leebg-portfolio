@@ -11,6 +11,9 @@ a {
   color: black;
   text-decoration: none;
 }
+img {
+  display: block;
+}
 
 .inner {
   width: 90%;
@@ -89,6 +92,10 @@ main {
 }
 .scss-code > div {
   flex: 1;
+}
+
+.note-detail img {
+  padding: 15px;
 }
 
 .note-detail pre {
