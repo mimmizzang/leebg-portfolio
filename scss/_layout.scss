@@ -1,0 +1,47 @@
+header {
+  background: white;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    margin-right: 20px;
+    font-size: 20px;
+    color: #858383;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.main-page {
+  header {
+    nav {
+      a {
+        margin-left: 25px;
+        font-weight: 500;
+        color: #858383;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: #eee;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 13px;
+}
