@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS @use @forward</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../../css/main.css" />
+  </head>
+  <body class="note-detail-page">
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">SCSS @use @forward</h1>
+
+          <h2>개요</h2>
+          <p>
+            @use와 @forward는 기존의 @import를 대체하는 새로운 모듈
+            시스템입니다.<br />이 두 규칙을 함께 사용하여 스타일을 모듈화하고
+            관리하는 방식은 프로젝트를 더 체계적이고 효율적으로 만듭니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>네임스페이스(Namespacing) 사용</li>
+            <li>범위(Scope) 제한</li>
+            <li>모듈 내보내기</li>
+          </ul>
+
+          <h2>공통 파일 정의</h2>
+          <pre><code>
+// _colors.scss
+$primary: blue;
+
+// _sizes.scss
+$primary: 16px;
+        </code></pre>
+
+          <div class="scss-code">
+            <div>
+              <h2>@import 예제 1</h2>
+              <pre><code>
+// style.scss
+@import 'colors';
+@import 'sizes';
+
+.element {
+  // $primary는 최종적으로 '16px'의 값을 가집니다.
+
+  color: $primary;
+  font-size: $primary;
+}
+        </code></pre>
+            </div>
+
+            <div>
+              <h2>@import 예제 2</h2>
+              <pre><code>
+// style.scss
+.element {
+  color: $primary;
+  font-size: $primary
+}
+
+// main.scss
+@import 'colors'
+@import 'sizes'
+@import 'style'
+        </code></pre>
+            </div>
+          </div>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              @import는 모든 변수를 전역으로 가져오기 때문에 이름이 같은 변수가
+              충돌합니다.
+            </li>
+            <li>
+              나중에 가져온 파일의 값으로 덮어쓰기 때문에 개발자가 의도한 색상이
+              아닌 크기가 적용되는 전역 오염 문제가 발생합니다.
+            </li>
+          </ul>
+
+          <h2>@use 예제</h2>
+          <pre><code>
+// style.scss
+@use 'colors';
+@use 'sizes';
+
+.element {
+  color: colors.$primary;
+  font-size: sizes.$primary;
+}
+
+// main.scss
+@use 'style';
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              @use는 가져온 파일 이름을 네임스페이스로 자동 부여하여 변수 이름을
+              격리합니다. 변수 이름이 같더라도 네임스페이스로 구분되기 때문에
+              충돌이 발생하지 않습니다.
+            </li>
+            <li>
+              변수를 사용하려면 반드시 해당 파일에서 @use규칙을 선언해야
+              합니다.<br />
+              필요한 곳에서 필요한 것만 명확한 이름으로 가져와 사용하도록
+              강제하여 코드를 훨씬 안전하고 관리하기 쉽게 만듭니다.
+            </li>
+          </ul>
+
+          <h2>@forward 예제: 개별 파일 정의</h2>
+          <pre><code>
+// lib/_colors.scss
+$primary: blue;
+
+// lib/_mixin.scss
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+        </code></pre>
+
+          <h2>@forward 예제: 묶음 파일 생성</h2>
+          <pre><code>
+// lib/_index.scss
+@forward 'colors';
+@forward 'mixin';
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>프로젝트에 간단한 색상 변수와 믹스인이 있다고 가정합니다.</li>
+            <li>
+              lib폴더 안에 _index.scss파일을 생성하여 위 두 파일을 @forward로
+              묶어줍니다.
+            </li>
+          </ul>
+
+          <h2>@forward 예제: 묶음만 @use하여 사용</h2>
+          <pre><code>
+// style.scss
+@use 'lib';
+
+.element {
+  @include lib.flex-center;
+
+  color: lib.$primary;
+}
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              _color.scss나 _mixin.scss를 일일히 @use할 필요 없이 묶음 파일인
+              lib폴더만 @use하면 됩니다.
+            </li>
+            <li>
+              @forward는 style.scss와 개별 파일 사이의 통로 역할을 합니다.
+            </li>
+            <li>
+              개발자는 lib/_index.scss만 관리하면 되고 style.scss는 깔끔하게
+              lib모듈만 가져와서 사용하게 됩니다. 이 방식이 모듈화의 핵심입니다.
+            </li>
+          </ul>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            SCSS를 처음 사용할 때는 @import로 모든 스타일을 전역에서 공유하는
+            방식으로만 사용했습니다.<br />하지만 @use와 @forward를 학습한 후
+            스타일을 모듈화 하고 네임스페이스로 관리하면서 코드를 더 안전하고
+            체계적으로 확장할 수 있게 되었습니다.
+          </p>
+          <p>
+            이를 통해 유지보수성과 확장성을 고려한 구조적 스타일 설계의 중요성을
+            느꼈습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>이 기술은 SCSS web 페이지 프로젝트에 활용했습니다.</p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/at-rules/use/"
+                target="_blank"
+                >SCSS @use</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/at-rules/forward/"
+                target="_blank"
+                >SCSS @forward</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
