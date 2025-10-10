@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCSS Map & List</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="../../css/main.css" />
+  </head>
+  <body class="note-detail-page">
+    <header>
+      <div class="inner">
+        <a href="../../index.html"><h1>My Portfolio</h1></a>
+
+        <div class="header-links">
+          <a href="../note.html" class="logo">
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a href="../../index.html" class="logo">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="inner">
+        <section class="note-detail">
+          <h1 class="note-title">
+            SCSS Map과 List를 활용한 동적 레이아웃 생성
+          </h1>
+
+          <h2>개요</h2>
+          <p>
+            만약 수십 개의 아이템 크기나 배경 이미지를 CSS로 일일이 지정해야
+            한다면 이는 CSS 코드를 비대하게 만들고 유지보수를 어렵게 합니다.<br />
+            SCSS의 Map과 List, @each 반복문을 사용하여 데이터를 구조화 하고 모든
+            스타일을 자동으로 생성하여 중복되는 스타일을 최소화해 효율적으로
+            관리합니다.
+          </p>
+
+          <h2>주요 내용</h2>
+          <ul>
+            <li>Map 구조 정의</li>
+            <li>@each와 map.get</li>
+            <li>List와 중첩 루프</li>
+          </ul>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+@use "sass:map";
+@use "sass:list";
+
+$articles: (
+  "1": (
+    width: 700px,
+    height: 400px,
+    bg: "700x400.png",
+    inner: (
+      "MerryChristmas",
+    ),
+  ),
+  "5-1": (
+    width: 490px,
+    height: 240px,
+    bg: "490x240-1.png",
+    inner: (
+      "Programmer",
+    ),
+  ),
+  "7": (
+    width: 1000px,
+    height: 371px,
+    bg: "1000x371.png",
+    inner: (
+      "Yours",
+    ),
+    inner-size: (
+      686px,
+      60px,
+    ),
+    pos-center: true,
+    text-shadow: true,
+  ),
+// ... (생략) ...
+);
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              $articles는 데이터베이스 역할을 하며 모든 아이템의 속성을 구조화
+              한 키-값 쌍으로 저장합니다.
+            </li>
+            <li>
+              각 아이템 내부에 또 다른 Map을 사용하여 속성을 관리하는 데이터
+              중첩 방식을 보여줍니다.
+            </li>
+            <li>
+              inner-size처럼 두 개 이상의 값을 하나의 키에 묶어 저장하고 나중에
+              순서대로 추출할 데이터는 Map이 아니라 list로 저장했습니다.
+            </li>
+          </ul>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+@each $key, $props in $articles {
+  .article--#{$key} {
+    width: map.get($props, width);
+    height: map.get($props, height);
+    float: left;
+    position: relative;
+    overflow: hidden;
+
+    @if map.has-key($props, bg) {
+      $bg-img: map.get($props, bg);
+      background-image: url(../img/#{$bg-img});
+    }
+// ... (생략) ...
+  }
+}
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              @each는 Map 반복의 기본 구문입니다. $key에는 항목 이름이
+              $props에는 해당 항목의 속성을 담은 중첩 Map이 할당됩니다.
+            </li>
+            <li>#{$key} 변수를 사용하여 CSS 선택자를 동적으로 생성합니다.</li>
+            <li>
+              map.get을 이용하여 Map에서 값을 꺼냅니다. $props Map에서 키에
+              해당하는 값을 가져와 CSS 속성 값으로 사용합니다.
+            </li>
+          </ul>
+
+          <h2>예제 코드</h2>
+          <pre><code>
+// ... @each 루프 계속 ...
+
+    @if map.has-key($props, inner) {
+      @each $inner-name in map.get($props, inner) {
+        .#{$inner-name} {
+          position: absolute;
+
+          @if map.has-key($props, inner-size) {
+            $size: map.get($props, inner-size);
+            width: list.nth($size, 1);
+            height: list.nth($size, 2);
+          }
+// ... (생략) ...
+        }
+      }
+    }
+
+// ... @each 루프 종료 ...
+        </code></pre>
+
+          <h2>속성 설명</h2>
+          <ul>
+            <li>
+              중첩 루프를 사용하여 Map 안에 저장된 inner List의 각 요소에
+              접근합니다.
+            </li>
+            <li>
+              inner-size 키에 해당하는 List 데이터 묶음 전체를 $size 변수에
+              할당합니다.
+            </li>
+            <li>
+              list.nth를 이용하여 List에서 값을 꺼냅니다. Map이 키 이름으로
+              접근하는 것과 달리 List는 인덱스 번호를 사용하여 원하는 값을
+              추출합니다.
+            </li>
+          </ul>
+
+          <h2>컴파일 후</h2>
+          <pre><code>
+.article--1 {
+  width: 700px;
+  height: 400px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../img/700x400.png);
+}
+.article--7 {
+  width: 1000px;
+  height: 371px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../img/1000x371.png);
+}
+.article--7 .Yours {
+  position: absolute;
+  width: 686px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 2px black;
+}
+// ... (생략) ...
+        </code></pre>
+
+          <h2>나의 생각 및 응용</h2>
+          <p>
+            $articles Map을 활용해 반복되는 .article--N 스타일을 자동
+            생성했습니다.<br />Map과 List, @each를 통해 중복 코드를 줄이고
+            유지보수성을 높이는 구조적 스타일링을 적용할 수 있었습니다.
+          </p>
+          <p>
+            이를 통해 스타일 코드도 하나의 데이터처럼 관리할 수 있다는 점을
+            체감했습니다.
+          </p>
+
+          <h2>기술 적용 사례</h2>
+          <p>이 기술은 SCSS web 페이지 프로젝트에 활용했습니다.</p>
+
+          <h2>관련 자료</h2>
+          <ul>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/modules/map/"
+                target="_blank"
+                >SCSS Map</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sass-lang.com/documentation/modules/list/"
+                target="_blank"
+                >SCSS List</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </p>
+        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
