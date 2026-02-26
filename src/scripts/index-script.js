@@ -1,3 +1,17 @@
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileLinks = document.querySelectorAll("#mobile-menu a");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+});
+
 // GSAP와 ScrollToPlugin 등록
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -19,6 +33,7 @@ navLinks.forEach((link) => {
   });
 });
 
+/*
 // main 텍스트 부드럽게 등장
 gsap.from("#main h2", {
   opacity: 0,
@@ -41,6 +56,7 @@ gsap.from("#main button", {
   delay: 1.0,
   ease: "power3.out",
 });
+*/
 
 // 버튼 클릭 스크롤 부드럽게 이동
 function scrollToSection(id) {
