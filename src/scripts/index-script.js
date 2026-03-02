@@ -1,3 +1,9 @@
+import Swiper from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+/*모바일 메뉴 클릭 효과*/
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobileLinks = document.querySelectorAll("#mobile-menu a");
@@ -86,14 +92,28 @@ gsap.utils.toArray(".section").forEach((section) => {
   });
 });
 
-// skills 슬라이드 기능
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 6,
-  spaceBetween: 15,
-  loop: true,
+/*projects section slide효과*/
+new Swiper(".projectSwiper", {
+  modules: [Navigation, Pagination, Autoplay],
+  slidesPerView: 1.1,
+  spaceBetween: 10,
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
   },
 });
 
