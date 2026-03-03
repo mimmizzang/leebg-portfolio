@@ -624,14 +624,29 @@
     </section>
 
     <!---footer--->
-    <footer>
-      <div class="inner">
-        <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
-        <p>©Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
 
-    <button id="scrollToTopBtn">↑</button>
+    <!---scrolltotop button--->
+    <button
+      id="scrollToTopBtn"
+      class="invisible fixed right-8 bottom-8 z-50 flex h-12 w-12 translate-y-10 cursor-pointer items-center justify-center rounded-full bg-teal-500/80 text-white opacity-0 shadow-xl transition-all hover:-translate-y-1 hover:bg-teal-600/80"
+    >
+      <i class="fa-solid fa-arrow-up text-xl"></i>
+    </button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 

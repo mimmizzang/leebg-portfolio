@@ -82,8 +82,8 @@ gsap.utils.toArray(".section").forEach((section) => {
   gsap.from(section, {
     scrollTrigger: {
       trigger: section,
-      start: "top 80%", // 화면 위에서 80% 지점일 때 시작
-      toggleActions: "play none none none", // 스크롤 방향에 따른 액션
+      start: "top 80%",
+      toggleActions: "play none none none",
     },
     opacity: 0,
     y: 50,
@@ -117,14 +117,18 @@ new Swiper(".projectSwiper", {
   },
 });
 
-// 스크롤 업 버튼 기능
+/*scrolltotop button*/
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = "block";
+    scrollToTopBtn.classList.replace("opacity-0", "opacity-100");
+    scrollToTopBtn.classList.replace("invisible", "visible");
+    scrollToTopBtn.classList.remove("translate-y-10");
   } else {
-    scrollToTopBtn.style.display = "none";
+    scrollToTopBtn.classList.replace("opacity-100", "opacity-0");
+    scrollToTopBtn.classList.replace("visible", "invisible");
+    scrollToTopBtn.classList.add("translate-y-10");
   }
 });
 
