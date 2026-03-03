@@ -1,7 +1,14 @@
-import Swiper from "swiper";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
+import Swiper from "swiper/bundle";
+import "swiper/css/bundle";
 
 /*모바일 메뉴 클릭 효과*/
 const menuBtn = document.getElementById("menu-btn");
@@ -17,9 +24,6 @@ mobileLinks.forEach((link) => {
     mobileMenu.classList.add("hidden");
   });
 });
-
-// GSAP와 ScrollToPlugin 등록
-gsap.registerPlugin(ScrollToPlugin);
 
 // 모든 링크에 대해 클릭 이벤트 처리
 const navLinks = document.querySelectorAll("nav .scroll");
@@ -74,9 +78,6 @@ function scrollToSection(id) {
   });
 }
 
-// GSAP와 ScrollTrigger 플러그인 등록
-gsap.registerPlugin(ScrollTrigger);
-
 // 각 섹션마다 부드럽게 등장하는 애니메이션 적용
 gsap.utils.toArray(".section").forEach((section) => {
   gsap.from(section, {
@@ -94,7 +95,6 @@ gsap.utils.toArray(".section").forEach((section) => {
 
 /*projects section slide효과*/
 new Swiper(".projectSwiper", {
-  modules: [Navigation, Pagination, Autoplay],
   slidesPerView: 1.1,
   spaceBetween: 10,
   autoplay: {
