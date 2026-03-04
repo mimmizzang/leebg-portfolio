@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.main-sub,
+.main-title,
+.main-desc,
+.main-btn {
+  opacity: 0;
+}

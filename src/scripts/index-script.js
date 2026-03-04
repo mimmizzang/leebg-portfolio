@@ -25,72 +25,45 @@ mobileLinks.forEach((link) => {
   });
 });
 
-// 모든 링크에 대해 클릭 이벤트 처리
+/*모든 링크에 대해 클릭 이벤트 처리*/
 const navLinks = document.querySelectorAll("nav .scroll");
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault(); // 기본 링크 동작 방지
+    e.preventDefault();
 
-    const targetId = link.getAttribute("href").substring(1); // href에서 #을 제외한 ID
-    const targetElement = document.getElementById(targetId); // 해당 ID를 가진 엘리먼트
+    const targetId = link.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
 
     gsap.to(window, {
-      scrollTo: { y: targetElement, offsetY: 50 }, // 50px만큼 떨어져서 스크롤
+      scrollTo: { y: targetElement, offsetY: 50 },
       duration: 1,
       ease: "power2.out",
     });
   });
 });
 
-/*
-// main 텍스트 부드럽게 등장
-gsap.from("#main h2", {
-  opacity: 0,
-  y: -30,
-  duration: 1,
-  delay: 0.5,
-  ease: "power3.out",
-});
-gsap.from("#main p", {
-  opacity: 0,
-  y: 20,
-  duration: 1,
-  delay: 0.8,
-  ease: "power3.out",
-});
-gsap.from("#main button", {
-  opacity: 0,
-  scale: 0.8,
-  duration: 1,
-  delay: 1.0,
-  ease: "power3.out",
-});
-*/
-
-// 버튼 클릭 스크롤 부드럽게 이동
-function scrollToSection(id) {
-  const section = document.getElementById(id);
-  gsap.to(window, {
-    scrollTo: { y: section, offsetY: 50 },
+/*main section gsap효과*/
+const mainTl = gsap.timeline({
+  defaults: {
+    ease: "power4.out",
     duration: 1,
-    ease: "power2.out",
-  });
-}
+  },
+});
 
-// 각 섹션마다 부드럽게 등장하는 애니메이션 적용
-gsap.utils.toArray(".section").forEach((section) => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    ease: "power2.out",
-  });
+mainTl
+  .fromTo(".main-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, delay: 0.4 })
+  .fromTo(".main-title", { y: 60, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
+  .fromTo(".main-desc", { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
+  .fromTo(".main-btn", { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, clearProps: "transform" }, "-=0.8");
+
+/*main section button효과*/
+document.getElementById("go-projects").addEventListener("click", () => {
+  gsap.to(window, { scrollTo: { y: "#projects", offsetY: 50 }, duration: 1 });
+});
+
+document.getElementById("go-contact").addEventListener("click", () => {
+  gsap.to(window, { scrollTo: { y: "#contact", offsetY: 50 }, duration: 1 });
 });
 
 /*projects section slide효과*/
@@ -117,18 +90,53 @@ new Swiper(".projectSwiper", {
   },
 });
 
+/*section 등장하는 gsap효과*/
+gsap.utils.toArray(".section").forEach((section) => {
+  gsap.fromTo(
+    section,
+    {
+      opacity: 0,
+      y: 50,
+    },
+    {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+    },
+  );
+});
+
 /*scrolltotop button*/
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
+gsap.set(scrollToTopBtn, {
+  autoAlpha: 0,
+  y: 40,
+});
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
-    scrollToTopBtn.classList.replace("opacity-0", "opacity-100");
-    scrollToTopBtn.classList.replace("invisible", "visible");
-    scrollToTopBtn.classList.remove("translate-y-10");
+    gsap.to(scrollToTopBtn, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
   } else {
-    scrollToTopBtn.classList.replace("opacity-100", "opacity-0");
-    scrollToTopBtn.classList.replace("visible", "invisible");
-    scrollToTopBtn.classList.add("translate-y-10");
+    gsap.to(scrollToTopBtn, {
+      autoAlpha: 0,
+      y: 40,
+      duration: 0.5,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
   }
 });
 
