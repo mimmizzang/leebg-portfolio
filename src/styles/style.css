@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
+/*index*/
 .main-sub,
 .main-title,
 .main-desc,
 .main-btn {
   opacity: 0;
+}
+
+/*note*/
+.filter-btn {
+  @apply rounded-full bg-white px-6 py-2.5 text-sm font-bold text-slate-500 shadow-sm ring-1 ring-slate-200 transition-all duration-300;
+  @apply hover:bg-teal-50 hover:text-teal-600 hover:ring-teal-200;
+}
+
+.filter-btn.active-filter {
+  @apply bg-teal-600 text-white shadow-lg ring-0 shadow-teal-200/50;
+  @apply hover:bg-teal-700 hover:text-white;
 }

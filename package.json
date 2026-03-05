@@ -30,6 +30,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "gsap": "^3.14.2",
+    "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
     "swiper": "^12.1.2"
   }

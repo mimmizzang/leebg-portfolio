@@ -1,197 +1,324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>스킬 노트</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
-
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../css/main.css" />
-
-    <script defer src="note-script.js"></script>
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <script type="module" src="/src/scripts/index-script.js"></script>
   </head>
-  <body class="note-page">
-    <header>
-      <div class="inner">
-        <a href="../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <a href="../index.html" class="logo">
-          <i class="fa-solid fa-house"></i>
-        </a>
+        <nav>
+          <ul class="flex items-center">
+            <li>
+              <a href="/" class="flex items-center justify-center text-slate-600 transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <ul class="nav">
-          <li class="on"><a href="*">ALL</a></li>
-          <li><a href=".language">Language</a></li>
-          <li><a href=".framework">Framework</a></li>
-          <li><a href=".animation">Animation</a></li>
-          <li><a href=".styling">Styling</a></li>
-          <li><a href=".utilities-tools">Utilities/Tools</a></li>
-        </ul>
+    <!---main--->
+    <main class="min-h-screen">
+      <section id="filter-section" class="w-full bg-white pt-30 pb-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 flex flex-col items-center text-center">
+            <h2 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Skill Note</h2>
+            <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+            <p class="mt-6 font-medium text-slate-500">학습한 기술과 프로젝트 경험을 기록합니다.</p>
+          </div>
 
-        <section>
-          <article class="animation">
-            <a href="./animation/gsap-scrolltrigger.html">
-              <div>
-                <img src="./img/gsap-image.png" alt="" />
-                <h2>GSAP</h2>
-                <p>ScrollTrigger</p>
-              </div>
-            </a>
-          </article>
+          <nav>
+            <ul class="filter-nav flex flex-wrap justify-center gap-3">
+              <li>
+                <button data-filter="*" class="filter-btn active-filter">ALL</button>
+              </li>
+              <li>
+                <button data-filter=".language" class="filter-btn">Language</button>
+              </li>
+              <li>
+                <button data-filter=".framework" class="filter-btn">Framework</button>
+              </li>
+              <li>
+                <button data-filter=".animation" class="filter-btn">Animation</button>
+              </li>
+              <li>
+                <button data-filter=".styling" class="filter-btn">Styling</button>
+              </li>
+              <li>
+                <button data-filter=".utilities-tools" class="filter-btn">Utilities-tools</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
 
-          <article class="animation">
-            <a href="./animation/gsap-floating.html">
-              <div>
-                <img src="./img/gsap-image.png" alt="" />
-                <h2>GSAP</h2>
-                <p>Floating Animation</p>
-              </div>
-            </a>
-          </article>
+      <section id="note-list" class="w-full bg-slate-50 py-16">
+        <div class="container mx-auto px-4">
+          <div class="grid-container">
+            <article class="grid-item animation w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./animation/gsap-scrolltrigger.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/gsap-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="animation">
-            <a href="./animation/swiper-promotion.html">
-              <div>
-                <img src="./img/swiper-image.png" alt="" />
-                <h2>Swiper</h2>
-                <p>일반적인 Slide</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">GSAP</h3>
+                  <p class="mt-1 text-sm text-slate-500">ScrollTrigger</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="styling">
-            <a href="./styling/css-fadein.html">
-              <div>
-                <img src="./img/css-image.png" alt="" />
-                <h2>CSS</h2>
-                <p>FadeIn</p>
-              </div>
-            </a>
-          </article>
+            <article class="grid-item animation w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./animation/gsap-floating.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/gsap-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="animation">
-            <a href="./animation/swiper-coverflow.html">
-              <div>
-                <img src="./img/swiper-image.png" alt="" />
-                <h2>Swiper</h2>
-                <p>coverflowEffect 활용 Slide</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">GSAP</h3>
+                  <p class="mt-1 text-sm text-slate-500">Floating Animation</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="utilities-tools">
-            <a href="./utilities-tools/isotope-filtering.html">
-              <div>
-                <img src="./img/isotope-image.png" alt="" />
-                <h2>Isotope</h2>
-                <p>Filtering</p>
-              </div>
-            </a>
-          </article>
+            <article class="grid-item animation w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./animation/swiper-promotion.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/swiper-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="animation">
-            <a href="./animation/aos.html">
-              <div>
-                <img src="./img/aos-image.png" alt="" />
-                <h2>AOS</h2>
-                <p>Zoom</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">Swiper</h3>
+                  <p class="mt-1 text-sm text-slate-500">Slide</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="styling">
-            <a href="./styling/scss-nesting.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS Nesting</p>
-              </div>
-            </a>
-          </article>
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/css-fadein.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/css-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="styling">
-            <a href="./styling/scss-import.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS @import</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">CSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">FadeIn</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="styling">
-            <a href="./styling/scss-variables.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS Variables</p>
-              </div>
-            </a>
-          </article>
+            <article class="grid-item animation w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./animation/swiper-coverflow.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/swiper-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="styling">
-            <a href="./styling/scss-mixin.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS @mixin</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">Swiper</h3>
+                  <p class="mt-1 text-sm text-slate-500">coverflowEffect 활용 Slide</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="utilities-tools">
-            <a href="./utilities-tools/git-branch-workflow.html">
-              <div>
-                <img src="./img/git-image.png" alt="" />
-                <h2>Git</h2>
-                <p>Git branch & workflow</p>
-              </div>
-            </a>
-          </article>
+            <article class="grid-item utilities-tools w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./utilities-tools/isotope-filtering.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/isotope-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
 
-          <article class="styling">
-            <a href="./styling/scss-use-forward.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS @use @forward</p>
-              </div>
-            </a>
-          </article>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">Isotope</h3>
+                  <p class="mt-1 text-sm text-slate-500">Filtering</p>
+                </div>
+              </a>
+            </article>
 
-          <article class="styling">
-            <a href="./styling/scss-map-list.html">
-              <div>
-                <img src="./img/scss-image.png" alt="" />
-                <h2>SCSS</h2>
-                <p>SCSS map & list</p>
-              </div>
-            </a>
-          </article>
-        </section>
-      </div>
+            <article class="grid-item animation w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./animation/aos.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/aos-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">Isotope</h3>
+                  <p class="mt-1 text-sm text-slate-500">Filtering</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-nesting.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS Nesting</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-import.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS @import</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-variables.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS @Variables</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-mixin.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS @mixin</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item utilities-tools w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./utilities-tools/git-branch-workflow.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/git-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">Git</h3>
+                  <p class="mt-1 text-sm text-slate-500">Git branch & workflow</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-use-forward.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS @use @forward</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="grid-item styling w-full p-4 sm:w-1/2 lg:w-1/4">
+              <a
+                href="./styling/scss-map-list.html"
+                class="block overflow-hidden rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200"
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
+                  <img src="./img/scss-image.png" alt="" class="h-full w-full object-cover" />
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold text-slate-900">SCSS</h3>
+                  <p class="mt-1 text-sm text-slate-500">SCSS map & list</p>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
 
-    <button id="scrollToTopBtn">↑</button>
+    <!---scrolltotop button--->
+    <button
+      id="scrollToTopBtn"
+      class="fixed right-8 bottom-8 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-teal-500/80 text-white shadow-xl hover:bg-teal-600/80"
+    >
+      <i class="fa-solid fa-arrow-up text-xl"></i>
+    </button>
   </body>
 </html>

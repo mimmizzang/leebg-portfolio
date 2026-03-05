@@ -10,18 +10,21 @@ AOS.init();
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
+import Isotope from "isotope-layout";
+import imagesLoaded from "imagesloaded";
+
 /*모바일 메뉴 클릭 효과*/
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobileLinks = document.querySelectorAll("#mobile-menu a");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
+menuBtn?.addEventListener("click", () => {
+  mobileMenu?.classList.toggle("hidden");
 });
 
-mobileLinks.forEach((link) => {
+mobileLinks?.forEach((link) => {
   link.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
+    mobileMenu?.classList.add("hidden");
   });
 });
 
@@ -30,65 +33,67 @@ const navLinks = document.querySelectorAll("nav .scroll");
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
-
     const targetId = link.getAttribute("href");
     const targetElement = document.querySelector(targetId);
 
-    gsap.to(window, {
-      scrollTo: { y: targetElement, offsetY: 50 },
-      duration: 1,
-      ease: "power2.out",
-    });
+    if (targetElement) {
+      e.preventDefault();
+      gsap.to(window, {
+        scrollTo: { y: targetElement, offsetY: 50 },
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
   });
 });
 
 /*main section gsap효과*/
-const mainTl = gsap.timeline({
-  defaults: {
-    ease: "power4.out",
-    duration: 1,
-  },
-});
+if (document.querySelector(".main-sub")) {
+  const mainTl = gsap.timeline({
+    defaults: { ease: "power4.out", duration: 1 },
+  });
 
-mainTl
-  .fromTo(".main-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, delay: 0.4 })
-  .fromTo(".main-title", { y: 60, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
-  .fromTo(".main-desc", { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
-  .fromTo(".main-btn", { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, clearProps: "transform" }, "-=0.8");
+  mainTl
+    .fromTo(".main-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, delay: 0.4 })
+    .fromTo(".main-title", { y: 60, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
+    .fromTo(".main-desc", { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
+    .fromTo(".main-btn", { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, clearProps: "transform" }, "-=0.8");
+}
 
 /*main section button효과*/
-document.getElementById("go-projects").addEventListener("click", () => {
+document.getElementById("go-projects")?.addEventListener("click", () => {
   gsap.to(window, { scrollTo: { y: "#projects", offsetY: 50 }, duration: 1 });
 });
 
-document.getElementById("go-contact").addEventListener("click", () => {
+document.getElementById("go-contact")?.addEventListener("click", () => {
   gsap.to(window, { scrollTo: { y: "#contact", offsetY: 50 }, duration: 1 });
 });
 
 /*projects section slide효과*/
-new Swiper(".projectSwiper", {
-  slidesPerView: 1.1,
-  spaceBetween: 10,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20,
+if (document.querySelector(".projectSwiper")) {
+  new Swiper(".projectSwiper", {
+    slidesPerView: 1.1,
+    spaceBetween: 10,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
     },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
-  },
-});
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+  });
+}
 
 /*section 등장하는 gsap효과*/
 gsap.utils.toArray(".section").forEach((section) => {
@@ -111,6 +116,32 @@ gsap.utils.toArray(".section").forEach((section) => {
     },
   );
 });
+
+/*note페이지 isotope효과*/
+const grid = document.querySelector(".grid-container");
+
+if (grid) {
+  imagesLoaded(grid, function () {
+    const iso = new Isotope(grid, {
+      itemSelector: ".grid-item",
+      layoutMode: "fitRows",
+      transitionDuration: "0.4s",
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-nav button");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((btn) => btn.classList.remove("active-filter"));
+
+        button.classList.add("active-filter");
+
+        const filterValue = button.getAttribute("data-filter");
+        iso.arrange({ filter: filterValue });
+      });
+    });
+  });
+}
 
 /*scrolltotop button*/
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
