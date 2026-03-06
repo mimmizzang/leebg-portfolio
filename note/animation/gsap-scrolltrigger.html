@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -7,153 +7,173 @@
 
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <script type="module" src="/src/scripts/index-script.js"></script>
   </head>
-  <body class="note-detail-page">
-    <header>
-      <div class="inner">
-        <a href="../../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <div class="header-links">
-          <a href="../note.html" class="logo">
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a href="../../index.html" class="logo">
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </div>
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <section class="note-detail">
-          <h1 class="note-title">GSAP ScrollTrigger</h1>
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-32 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <header class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 uppercase ring-1 ring-teal-200"
+          >
+            카테고리
+          </span>
+          <h1 class="text-4xl font-black tracking-tighter text-slate-900 md:text-6xl">기술 제목</h1>
+          <div class="mt-6 h-1.5 w-16 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">한 줄 설명</p>
+        </header>
 
-          <h2>개요</h2>
-          <p>
-            GSAP의 ScrollTrigger는 요소가 스크롤 위치에 따라 애니메이션을
-            실행하거나 제어할 수 있게 해주는 플러그인입니다.
-          </p>
+        <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200 md:p-12">
+          <section class="mb-16">
+            <h2 class="flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-500"></span>
+              개요
+            </h2>
+            <div class="mt-6 space-y-4">
+              <p class="leading-relaxed text-slate-600 md:text-lg">설명</p>
+            </div>
+          </section>
 
-          <h2>주요 내용</h2>
-          <ul>
-            <li>요소 등장 애니메이션</li>
-            <li>좌우로 슬라이드 효과</li>
-            <li>ScrollTrigger의 trigger, start, toggleActions 속성 사용</li>
-          </ul>
-
-          <h2>사용한 예제</h2>
-          <iframe src="./demos/gsap-scrolltrigger-demo/index.html"> </iframe>
-
-          <h2>예제 코드</h2>
-          <pre><code>
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from(".left-img", {
-  scrollTrigger: {
-    trigger: ".scroll-section",
-    start: "top 80%",
-    toggleActions: "play none none reset",
-  },
-  x: -200,
-  opacity: 0,
-  duration: 1,
-  stagger: 0.2,
-});
-
-gsap.from(".right-img", {
-  scrollTrigger: {
-    trigger: ".scroll-section",
-    start: "top 80%",
-    toggleActions: "play none none reset",
-  },
-  x: 200,
-  opacity: 0,
-  duration: 1,
-  stagger: 0.2,
-});
-        </code></pre>
-
-          <h2>사용한 속성 설명</h2>
-          <ul>
-            <li>
-              <strong>trigger</strong>: 애니메이션이 시작될 기준 요소로, 해당
-              요소가 화면에 보일 때 애니메이션이 실행
-            </li>
-            <li>
-              <strong>start</strong>: 애니메이션이 언제 시작할지 위치를 지정하는
-              속성으로, 이 예제에서는 요소의 <code>top</code>이 뷰포트
-              <code>80%</code> 지점에 닿을 때 시작
-            </li>
-            <li>
-              <strong>toggleActions</strong>: 스크롤 변화에 따라 애니메이션 동작
-              방식을 지정하는 속성으로,
-              <code>"play none none reset"</code> 설정으로 아래로 스크롤 시
-              애니메이션 실행, 다시 위로 스크롤 시 초기화되는 설정
-            </li>
-          </ul>
-
-          <h2>주로 사용하는 ScrollTrigger 속성</h2>
-          <ul>
-            <li>
-              <strong>end</strong>: 애니메이션 종료 위치 설정 (예:
-              <code>"bottom top"</code>)
-            </li>
-            <li>
-              <strong>markers</strong>: 디버깅용 가이드라인 표시
-              (<code>true</code>로 설정 시 화면에 기준선 표시)
-            </li>
-            <li>
-              <strong>scrub</strong>: 스크롤 진행과 애니메이션 동기화 (예:
-              <code>true</code> 또는 숫자 사용)
-            </li>
-            <li>
-              <strong>pin</strong>: 요소를 스크롤 동안 고정하여 패럴럭스 효과 등
-              구현 가능
-            </li>
-          </ul>
-
-          <h2>나의 생각 및 응용</h2>
-          <p>
-            스크롤 시 특정 섹션에 진입할 때 좌우에서 이미지가 자연스럽게
-            나타나는 효과를 구현하기 위해 ScrollTrigger를 활용했습니다.<br />
-            단순히 transform 속성으로도 구현할 수 있었지만, 라이브러리를 직접
-            사용해보고 싶었고, ScrollTrigger의 다양한 속성 덕분에 훨씬 간단하고
-            직관적으로 작업할 수 있었습니다.
-          </p>
-          <p>
-            특정 구간에서 애니메이션 실행을 멈추거나 초기화하고, 요소를 고정하는
-            등의 다양한 응용도 가능하다는 점이 인상적이었습니다.<br />
-            앞으로 다른 프로젝트를 만들 때도 적극적으로 활용할 계획입니다.
-          </p>
-
-          <h2>기술 적용 사례</h2>
-          <p>
-            이 기술은 스타벅스 페이지 프로젝트의 섹션 스크롤 애니메이션에
-            적용했습니다.
-          </p>
-
-          <h2>관련 자료</h2>
-          <ul>
-            <li>
-              <a
-                href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/"
-                target="_blank"
-                >GSAP-ScrollTrigger</a
+          <section class="mb-16">
+            <h2 class="flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-500"></span>
+              주요 내용
+            </h2>
+            <ul class="mt-8 grid gap-4 md:grid-cols-2">
+              <li
+                class="flex items-start gap-3 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 transition-all hover:bg-white hover:shadow-md hover:ring-teal-200"
               >
-            </li>
-          </ul>
-        </section>
+                <i class="fa-solid fa-check mt-1 text-teal-500"></i>
+                <div>
+                  <span class="block font-bold text-slate-900">01</span>
+                  <span class="text-sm text-slate-500">특징</span>
+                </div>
+              </li>
+              <li
+                class="flex items-start gap-3 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 transition-all hover:bg-white hover:shadow-md hover:ring-teal-200"
+              >
+                <i class="fa-solid fa-check mt-1 text-teal-500"></i>
+                <div>
+                  <span class="block font-bold text-slate-900">02</span>
+                  <span class="text-sm text-slate-500">특징</span>
+                </div>
+              </li>
+              <li
+                class="flex items-start gap-3 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 transition-all hover:bg-white hover:shadow-md hover:ring-teal-200"
+              >
+                <i class="fa-solid fa-check mt-1 text-teal-500"></i>
+                <div>
+                  <span class="block font-bold text-slate-900">03</span>
+                  <span class="text-sm text-slate-500">특징</span>
+                </div>
+              </li>
+              <li
+                class="flex items-start gap-3 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 transition-all hover:bg-white hover:shadow-md hover:ring-teal-200"
+              >
+                <i class="fa-solid fa-check mt-1 text-teal-500"></i>
+                <div>
+                  <span class="block font-bold text-slate-900">04</span>
+                  <span class="text-sm text-slate-500">특징</span>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-16">
+            <h2 class="flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-500"></span>
+              사용한 예제
+            </h2>
+          </section>
+
+          <section class="mb-16">
+            <div class="mb-6 flex items-center justify-between">
+              <h2 class="flex items-center gap-3 text-2xl font-bold text-slate-900">
+                <span class="h-8 w-1.5 rounded-full bg-teal-500"></span>
+                예제 코드
+              </h2>
+            </div>
+            <div class="group relative"></div>
+          </section>
+
+          <section class="mb-16 rounded-3xl bg-teal-50 p-8 ring-1 ring-teal-100 md:p-10">
+            <h2 class="flex items-center gap-3 text-2xl font-bold text-teal-900">
+              <i class="fa-solid fa-lightbulb text-teal-500"></i>
+              생각 및 응용
+            </h2>
+            <div class="mt-6 space-y-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-teal-900">생각</h4>
+                <p class="leading-relaxed text-teal-800/80">설명</p>
+              </div>
+              <div class="space-y-2 border-t border-teal-200/50 pt-4">
+                <h4 class="font-bold text-teal-900">응용</h4>
+                <p class="leading-relaxed text-teal-800/80">설명</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="flex items-center gap-3 text-xl font-bold text-slate-900">
+              <i class="fa-solid fa-link text-sm text-slate-400"></i>
+              자료
+            </h2>
+            <ul class="mt-4">
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="inline-flex items-center gap-1 text-slate-500 transition-colors hover:text-teal-600"
+                >
+                  사이트
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
   </body>
