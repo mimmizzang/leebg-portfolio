@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Floating & Reveal</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/src/styles/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
+
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Animation
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">GSAP Floating & Reveal</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            단순한 움직임을 넘어 시간의 흐름을 설계하는 라이브러리
+          </p>
+        </section>
+
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                프로젝트의 몰입감을 높이기 위해 사용자의 시선을 자연스럽게 유도하는 Floating & Reveal 효과를 구현하고자
+                했습니다.
+              </p>
+              <p>
+                CSS Transition의 단순 반복을 넘어 GSAP을 선택한 이유는 수십 개의 애니메이션을 하나의 Timeline으로 통합
+                관리하는 코드 효율성과 미세한 속성 조절을 통해 움직임을 설계할 수 있는 정교한 제어력 때문입니다.
+              </p>
+            </div>
+          </div>
+
+          <!---예제 화면--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 화면
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                프로젝트에 사용했던 Floating & Reveal 효과 데모가 준비되어 있습니다.
+              </p>
+            </div>
+            <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
+              <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
+                <div class="flex gap-1.5">
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                </div>
+              </div>
+              <iframe
+                src="/demos/gsap/floating-reveal.html"
+                class="h-[550px] w-full border-none"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 코드
+            </h2>
+
+            <div class="space-y-10 px-1">
+              <div class="grid gap-4 px-1 md:grid-cols-2">
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">yoyo & repeat</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    애니메이션을 무한 반복시키고 역재생하는 yoyo 옵션을 통해 끊김 없이 움직이는 배경을 구현했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">utils.random</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    고정된 수치가 아닌 범위 내 랜덤 값을 부여하여 각 요소가 서로 다른 궤적과 속도로 움직이는 자연스러운
+                    효과를 완성했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">gsap.timeline</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    여러 애니메이션을 하나의 timeline으로 묶고 상대적 시점(-=)을 활용하여 각 요소의 등장 흐름을
+                    유기적으로 연결했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">stagger</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    모든 글자가 한 번에 나타나지 않고 미세한 시차를 두며 순차적으로 드러나는 리듬감 있는 시각적 연출을
+                    더했습니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>/*floating 효과*/
+gsap.utils.toArray(".circle").forEach((el, i) => {
+  gsap.to(el, {
+    x: "random(-200, 200)",
+    y: "random(-150, 150)",
+    scale: "random(0.8, 1.2)",
+    duration: "random(4, 7)",
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    delay: i * 0.5,
+  });
+});
+
+/*reveal 효과*/
+const tl = gsap.timeline({
+  defaults: {
+    y: 0,
+    opacity: 1,
+    duration: 1,
+  },
+});
+
+tl.to(".title", {
+  ease: "power4.out",
+  stagger: 0.1,
+})
+
+  .to(
+    ".desc",
+    {
+      ease: "power2.out",
+    },
+    "-=0.6",
+  )
+
+  .to(
+    "#replay-btn",
+    {
+      scale: 1,
+      ease: "back.out(2)",
+    },
+    "-=0.4",
+  );</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl space-y-10">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  단순한 등장 효과라면 CSS만으로도 충분했을 것입니다. 하지만 프로젝트에서 구현하고자 한 것은 요소 간의
+                  유기적인 시차였습니다. CSS의
+                  <code class="font-semibold text-teal-600">delay</code> 방식은 요소가 늘어날수록 유지보수가 어려워지며
+                  전체적인 흐름을 한눈에 파악하기 힘듭니다.
+                </p>
+                <p>
+                  반면 GSAP의 Timeline은 각 동작을 순서대로 쌓고
+                  <code class="font-semibold text-teal-600">"-=0.6"</code> 처럼 앞 동작과 겹치는 시간을 직관적으로
+                  조절할 수 있게 해줍니다. 덕분에 코드의 가독성을 지키면서도 사용자가 페이지를 지루하게 느끼지 않도록
+                  설계할 수 있어서 효율적이었습니다.
+                </p>
+              </div>
+
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  배경의 Floating 효과에 <code class="font-semibold text-teal-600">gsap.utils.random</code>을
+                  활용했습니다. 정해진 경로만 반복하는 애니메이션은 사용자에게 기계적이라는 인상을 주지만 범위 내의 랜덤
+                  값을 부여하면 페이지가 멈춰있지 않고 살아있다는 느낌을 준다고 생각합니다.
+                </p>
+                <p>
+                  여기에 <code class="font-semibold text-teal-600">back.out</code>이나
+                  <code class="font-semibold text-teal-600">sine.inOut</code> 같은 효과를 조합했는데 다양한 속성들을
+                  직접 적용해 보며 사용자가 기분 좋게 느낄 수 있는 움직임을 찾아가는 과정이 재밌었습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl space-y-10">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  처음에는 요소에 공통적으로 적용된
+                  <code class="font-semibold text-teal-600">transition: all</code> 속성 때문에 GSAP 애니메이션이
+                  부드럽지 않고 끊기듯 작동하는 문제를 겪었습니다.
+                </p>
+                <p>
+                  원인을 파악해 보니 GSAP이 인라인 스타일로 수치를 변경할 때마다 CSS의 transition이 이를 가로채서 다시
+                  계산하려고 시도하며 시간 계산의 충돌이 발생한 것이었습니다. 이를 해결하기 위해 transition 범위를
+                  <code class="font-semibold text-teal-600">background-color</code> 등 GSAP이 건드리지 않는 속성으로
+                  한정하거나 애니메이션 대상에서는 CSS transition을 제거하여 해결했습니다.
+                </p>
+              </div>
+
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  버튼 등에서 CSS의 <code class="font-semibold text-teal-600">:hover</code> 효과와 GSAP의 Reveal 효과가
+                  겹치면서 애니메이션이 끝난 후에도 스타일이 의도치 않게 고정되는 현상이 있었습니다.
+                </p>
+                <p>
+                  이를 해결하기 위해 애니메이션 완료 시점에
+                  <code class="font-semibold text-teal-600">clearProps: "all"</code>을 사용하여 GSAP이 부여한 인라인
+                  스타일을 초기화하거나 아예
+                  <code class="font-semibold text-teal-600">mouseenter/mouseleave</code> 이벤트를 통해 호버 효과까지
+                  GSAP으로 통합 관리함으로써 일관성 있는 인터랙션을 구현했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
+      </div>
+    </footer>
+  </body>
+</html>
