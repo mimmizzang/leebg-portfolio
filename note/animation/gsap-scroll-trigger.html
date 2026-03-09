@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP ScrollTrigger</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/src/styles/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
+
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Animation
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">GSAP ScrollTrigger</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            정적인 페이지에 생동감을 불어넣고 사용자의 스크롤을 인터랙티브한 여정으로 바꾸는 기술
+          </p>
+        </section>
+
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                ScrollTrigger를 학습하며 이를 실제 프로젝트에 어떻게 사용할지 고민했습니다. 콘텐츠의 등장 시점을
+                설계하여 사용자에게 더 나은 시각적 경험을 제공하고자 했습니다.
+              </p>
+              <p>
+                단순히 콘텐츠를 나열하기보다 사용자가 페이지를 내려가는 흐름에 맞춰 적절한 효과가 나타날 때 정보에 더
+                주의 깊게 집중할 수 있다고 생각했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!---예제 화면--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 화면
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                프로젝트에 사용했던 ScrollTrigger 효과 데모가 준비되어 있습니다.
+              </p>
+            </div>
+            <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
+              <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
+                <div class="flex gap-1.5">
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                </div>
+              </div>
+              <iframe
+                src="/demos/gsap/scroll-trigger.html"
+                class="h-[550px] w-full border-none"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 코드
+            </h2>
+
+            <div class="space-y-10 px-1">
+              <div class="grid gap-4 px-1 md:grid-cols-2">
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">trigger</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    애니메이션 시작을 감지할 기준 요소를 지정하여 특정 컨테이너가 화면에 들어오는 찰나를 정확히
+                    포착하도록 구현했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">start</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    요소와 뷰포트의 기준점을 연결하는 정교한 타이밍 설계를 통해 시선이 머물기 좋은 높이에서 효과를
+                    시작시켰습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">toggleActions</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    스크롤 방향이나 재진입 등 상황별 동작 규칙을 정의하여 일회성 실행이나 반복 여부를 제어하며
+                    완성했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">markers</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    시작과 종료 지점을 화면에 표시하는 도구를 활용하여 의도한 지점에서 애니메이션이 일어나는지
+                    검증했습니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".section-container").forEach((container) => {
+  const box = container.querySelector(".reveal-box");
+  const text = container.querySelector(".reveal-text");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  tl.from(box, {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  })
+
+    .from(
+      text,
+      {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      },
+      "-=0.6",
+    );
+});</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl space-y-10">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl space-y-10">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
+      </div>
+    </footer>
+  </body>
+</html>
