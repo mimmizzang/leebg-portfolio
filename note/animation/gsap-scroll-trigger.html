@@ -47,7 +47,7 @@
           <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">GSAP ScrollTrigger</h1>
           <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
           <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
-            정적인 페이지에 생동감을 불어넣고 사용자의 스크롤을 인터랙티브한 여정으로 바꾸는 기술
+            멈춰있는 페이지에 흐름을 만들고 스크롤에 따라 이야기가 시작되게 하는 기술
           </p>
         </section>
 
@@ -110,7 +110,7 @@
                   <h3 class="mb-2 text-sm font-bold text-slate-900">trigger</h3>
 
                   <p class="mt-2 text-xs leading-relaxed text-slate-500">
-                    애니메이션 시작을 감지할 기준 요소를 지정하여 특정 컨테이너가 화면에 들어오는 찰나를 정확히
+                    애니메이션 시작을 감지할 기준 요소를 지정하여 특정 컨테이너가 화면에 들어오는 순간을 정확히
                     포착하도록 구현했습니다.
                   </p>
                 </div>
@@ -187,15 +187,20 @@ gsap.utils.toArray(".section-container").forEach((container) => {
               비교 분석
             </h2>
 
-            <div class="max-w-4xl space-y-10">
+            <div class="max-w-4xl">
               <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-                <p></p>
-              </div>
-
-              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-                <p></p>
+                <p>
+                  CSS의 조절만으로도 등장 효과를 만들 수 있지만 요소가 화면의 어느 지점에서 나타날지 정밀하게 제어하는
+                  데는 한계가 있습니다. <code class="font-semibold text-teal-600">ScrollTrigger</code>는 트리거가 되는
+                  기준 요소를 자유롭게 지정하고 애니메이션이 시작되는 타이밍을 설계할 수 있어 사용자의 시선 흐름에
+                  최적화된 연출이 가능했습니다.
+                </p>
+                <p>
+                  <code class="font-semibold text-teal-600">markers</code>를 활용해 애니메이션의 시작과 종료 지점을
+                  실시간으로 확인하며 정교하게 작업할 수 있다는 점과 별도의 복잡한 스크립트 없이
+                  <code class="font-semibold text-teal-600">toggleActions</code>속성만으로 효과의 반복 실행 여부를 한
+                  줄로 제어 가능한 점이 큰 장점이라고 생각합니다.
+                </p>
               </div>
             </div>
           </div>
@@ -207,15 +212,18 @@ gsap.utils.toArray(".section-container").forEach((container) => {
               주요 학습 포인트
             </h2>
 
-            <div class="max-w-4xl space-y-10">
+            <div class="max-w-4xl">
               <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-                <p></p>
-              </div>
-
-              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-                <p></p>
+                <p>
+                  처음에는 단순히 페이지를 위아래로 이동시키는 도구로만 생각하고 ScrollTrigger를 접했습니다. 하지만
+                  응용법을 깊게 파고들면서 <code class="font-semibold text-teal-600">pin</code>을 활용한 요소 고정, 가로
+                  스크롤 연출, 그리고 <code class="font-semibold text-teal-600">scrub</code>을 이용한 스크롤 속도 동기화
+                  등 커스터마이징의 가능성이 무궁무진하다는 점을 깨달았습니다.
+                </p>
+                <p>
+                  이를 통해 다음 프로젝트에서는 더 복잡하고 사용자의 시선을 확실히 끌어당기는 입체적인 레이아웃을 설계할
+                  수 있다는 기대감을 얻었습니다.
+                </p>
               </div>
             </div>
           </div>
