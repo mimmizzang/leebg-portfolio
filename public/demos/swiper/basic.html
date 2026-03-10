@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/demos/gsap/demo-style.css" />
+    <script src="/demos/swiper/basic.js" defer></script>
+  </head>
+  <body class="flex min-h-screen items-center justify-center bg-slate-900 p-4 text-white">
+    <div class="w-full max-w-5xl">
+      <div
+        class="swiper mySwiper relative overflow-hidden rounded-3xl bg-slate-800 p-10 shadow-2xl ring-1 ring-slate-700"
+      >
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-blue-900/40 p-8 shadow-lg ring-1 ring-blue-500/30 transition-all duration-500 hover:bg-blue-600 hover:ring-blue-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-blue-950/50 italic transition-all select-none group-hover:text-blue-400/20"
+              >01</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-blue-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-blue-600"
+            >
+              <i class="fa-solid fa-layer-group text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-emerald-900/40 p-8 shadow-lg ring-1 ring-emerald-500/30 transition-all duration-500 hover:bg-emerald-600 hover:ring-emerald-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-emerald-950/50 italic transition-all select-none group-hover:text-emerald-400/20"
+              >02</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-emerald-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-emerald-600"
+            >
+              <i class="fa-solid fa-pen-nib text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-indigo-900/40 p-8 shadow-lg ring-1 ring-indigo-500/30 transition-all duration-500 hover:bg-indigo-600 hover:ring-indigo-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-indigo-950/50 italic transition-all select-none group-hover:text-indigo-400/20"
+              >03</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-indigo-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-indigo-600"
+            >
+              <i class="fa-solid fa-code text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-pink-900/40 p-8 shadow-lg ring-1 ring-pink-500/30 transition-all duration-500 hover:bg-pink-600 hover:ring-pink-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-pink-950/50 italic transition-all select-none group-hover:text-pink-400/20"
+              >04</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-pink-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-pink-600"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-amber-900/40 p-8 shadow-lg ring-1 ring-amber-500/30 transition-all duration-500 hover:bg-amber-600 hover:ring-amber-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-amber-950/50 italic transition-all select-none group-hover:text-amber-400/20"
+              >05</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-amber-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-amber-600"
+            >
+              <i class="fa-solid fa-bolt text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide group relative flex h-80 flex-col items-center justify-center overflow-hidden rounded-3xl bg-rose-900/40 p-8 shadow-lg ring-1 ring-rose-500/30 transition-all duration-500 hover:bg-rose-600 hover:ring-rose-400"
+          >
+            <span
+              class="absolute -top-6 -right-4 text-9xl font-black text-rose-950/50 italic transition-all select-none group-hover:text-rose-400/20"
+              >06</span
+            >
+            <div
+              class="flex size-28 items-center justify-center rounded-3xl bg-rose-500 text-white shadow-lg transition-all group-hover:scale-110 group-hover:bg-white group-hover:text-rose-600"
+            >
+              <i class="fa-solid fa-rocket text-5xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute inset-y-0 left-2 z-20 flex items-center">
+          <button
+            class="swiper-prev-btn flex size-12 cursor-pointer items-center justify-center rounded-full bg-slate-900/80 text-white shadow-2xl backdrop-blur-sm transition-all hover:bg-white hover:text-slate-900"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+        <div class="absolute inset-y-0 right-2 z-20 flex items-center">
+          <button
+            class="swiper-next-btn flex size-12 cursor-pointer items-center justify-center rounded-full bg-slate-900/80 text-white shadow-2xl backdrop-blur-sm transition-all hover:bg-white hover:text-slate-900"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div
+          class="swiper-pagination !bottom-2 z-20"
+          style="
+            --swiper-pagination-color: #fff;
+            --swiper-pagination-bullet-inactive-color: #475569;
+            --swiper-pagination-bullet-inactive-opacity: 1;
+          "
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

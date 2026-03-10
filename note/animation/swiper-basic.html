@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Basic</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/src/styles/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
+
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Animation
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Swiper Basic</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            프레임의 한계를 넘어 무한한 공간을 탐색하게 만드는 슬라이드 라이브러리
+          </p>
+        </section>
+
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                정보량이 많은 프로젝트에서 모든 콘텐츠를 세로로만 나열할 경우 페이지가 지나치게 길어져 사용자가 느끼는
+                시각적 피로도가 높아질 수 있다고 생각했습니다.
+              </p>
+              <p>
+                한정된 섹션 안에서 가로 공간을 효율적으로 활용할 수 있는 Swiper를 사용하여 다양한 정보를 사용자가
+                이탈하지 않고 끝까지 몰입할 수 있는 레이아웃을 설계하고자 했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!---예제 화면--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 화면
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                프로젝트에 사용했던 Swiper-Basic 효과 데모가 준비되어 있습니다.
+              </p>
+            </div>
+            <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
+              <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
+                <div class="flex gap-1.5">
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                </div>
+              </div>
+              <iframe src="/demos/swiper/basic.html" class="h-[550px] w-full border-none" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 코드
+            </h2>
+
+            <div class="space-y-10 px-1">
+              <div class="grid gap-4 px-1 md:grid-cols-2">
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">slidesPerView</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    화면 너비에 따른 슬라이드 노출을 소수점 단위로 조정하여 다음 콘텐츠의 일부를 의도적으로 노출
+                    함으로써 스와이퍼 액션을 유도했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">loop</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    콘텐츠의 시작과 끝을 무한 루프로 설계하여 사용자가 어느 방향으로 탐색하더라도 흐름이 끊기지 않는
+                    연속성을 구현했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">breakpoints</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    사용자의 접속 환경에 따라 카드 수와 간격을 재구성하여 어떤 디바이스에서도 균형을 유지하도록
+                    설계했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">autoplay</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    가만히 있어도 슬라이드가 부드럽게 넘어가며 시선을 끌어주고 사용자가 손을 대는 순간에는 멈춰서
+                    집중하게 만들어줍니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1.2,
+  spaceBetween: 20,
+  loop: true,
+  autoplay: { delay: 3000 },
+  navigation: {
+    nextEl: ".swiper-next-btn",
+    prevEl: ".swiper-prev-btn",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2.2,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3.2,
+      spaceBetween: 40,
+    },
+  },
+});</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  CSS만으로는 슬라이드가 끝없이 이어지는 무한 루프를 구현하거나 화면 크기에 맞춰 노출 개수를 정밀하게
+                  제어하는 데 어려움이 있습니다. Swiper는 복잡한 코드를 직접 짤 필요 없이 설정만으로 첫 페이지와
+                  마지막을 자연스럽게 연결해 줄 수 있고
+                  <code class="font-semibold text-teal-600">breakpoints</code> 설계를 통해 어떤 화면에서도 의도한
+                  슬라이드 비율을 일정하게 해줍니다.
+                </p>
+                <p>
+                  <code class="font-semibold text-teal-600">slidesPerView</code>의 소수점 수치를 미세하게 조정하며 다음
+                  카드가 살짝 노출되는 효과가 사용자로 하여금 자연스럽게 다음 콘텐츠를 탐색하고 싶게 만드는 흐름을
+                  만든다고 생각합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  <code class="font-semibold text-teal-600">slidesPerView</code>를
+                  <code class="font-semibold text-teal-600">auto</code>나 특정 수치로 설정할 때 라이브러리가 슬라이드의
+                  너비와 높이를 인라인 스타일로 강제 계산하는 과정에서 기존 CSS와 충돌이 잦았습니다. 특히 슬라이드 간의
+                  간격이나 크기가 의도한 대로 제어되지 않을 때
+                  <code class="font-semibold text-teal-600">!important</code>를 활용해 스타일 우선순위를 강제로 확보하며
+                  해결했습니다. 이를 통해 라이브러리가 편리함을 제공하지만 때로는 개발자가 명시적으로 스타일 제어권을
+                  가져와야 하는 상황이 발생한다는 것을 배웠습니다.
+                </p>
+
+                <p>
+                  기본적으로 제공되는 <code class="font-semibold text-teal-600">Navigation</code>이나
+                  <code class="font-semibold text-teal-600">Pagination</code>의 디자인이 프로젝트의 전체적인 톤과 맞지
+                  않아 CSS로 완전히 새롭게 재설계하기도 했습니다. 라이브러리가 제공하는 기본 클래스명을 찾아내어
+                  하나하나 커스텀 디자인을 입히는 과정을 통해 완성도 높은 UI를 위해서는 라이브러리의 기능을 그대로 쓰는
+                  것에 그치지 않고 서비스의 색깔에 맞게 변형하는 능력이 중요하다는 점을 느꼈습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
+      </div>
+    </footer>
+  </body>
+</html>
