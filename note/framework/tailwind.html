@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tailwind css</title>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/src/styles/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
+
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Framework
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Utility-first vs Semantic CSS</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            클래스 네이밍 스트레스에서 벗어나 오직 디자인과 구조에만 집중하는 시간
+          </p>
+        </section>
+
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                정보량이 많고 구조가 복잡한 프로젝트일수록 CSS 파일의 규모는 커지기 마련입니다. 특히 각 요소의 역할을
+                정의하기 위해 복잡한 클래스명을 설계하고 중복되지 않도록 하는 과정은 불편할 수 있다고 생각했습니다.
+              </p>
+              <p>
+                저는 프로젝트에서 Utility-first 철학을 가진 Tailwind CSS를 도입했습니다. 이를 통해 별도의 이름을
+                고민하거나 CSS 파일을 오가는 번거로움 없이 HTML 내부에서 즉시 스타일을 완성하는 효율적인 작업을
+                경험했습니다. 단순히 속도가 빠른 코딩을 넘어 일관된 디자인 가이드를 유지하며 유지 보수가 용이한
+                인터페이스를 만들고자 했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!---예제 화면--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 화면
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600"></p>
+            </div>
+            <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
+              <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
+                <div class="flex gap-1.5">
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                </div>
+              </div>
+              <iframe
+                src="/demos/tailwind/tailwind-demo.html"
+                class="h-[550px] w-full border-none"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              전통적인 방식 (Vanilla CSS)
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                기존 방식은 스타일을 정의하기 위해 HTML과 CSS 파일을 끊임없이 오가야 하며 반응형 대응을 위해 코드의
+                중복과 커짐이 발생합니다.
+              </p>
+            </div>
+
+            <div class="space-y-4 px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              유틸리티 우선 방식 (Tailwind CSS)
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                Tailwind CSS는 별도의 클래스 설계 없이 유틸리티 클래스만으로 스타일을 완성합니다. HTML 내부에서
+                레이아웃과 반응형 처리를 동시에 끝낼 수 있습니다.
+              </p>
+            </div>
+
+            <div class="px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
+      </div>
+    </footer>
+  </body>
+</html>
