@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/demos/gsap/demo-style.css" />
+  </head>
+  <body class="flex min-h-screen flex-col items-center justify-center bg-slate-900 p-6 text-white">
+    <p class="mb-8 text-sm tracking-widest text-slate-400">Result Preview</p>
+
+    <div class="flex w-full flex-col items-center justify-center gap-12 md:flex-row">
+      <div class="w-full max-w-sm rounded-2xl border border-slate-700 bg-slate-800 p-6 shadow-xl">
+        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
+          <i class="fa-solid fa-flag text-white"></i>
+        </div>
+        <h3 class="mb-2 text-lg font-bold">Card Component</h3>
+        <p class="mb-6 text-sm leading-relaxed text-slate-400">
+          이 화면은 Vanilla CSS와 Tailwind 두 방식 모두로 동일하게 구현될 수 있습니다.
+        </p>
+
+        <button
+          class="w-full rounded-xl bg-indigo-600 px-4 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-indigo-500 active:scale-95"
+        >
+          Button
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

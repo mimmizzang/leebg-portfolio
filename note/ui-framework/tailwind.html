@@ -42,9 +42,9 @@
           <span
             class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
           >
-            Framework
+            UI Framework
           </span>
-          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Utility-first vs Semantic CSS</h1>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Tailwind CSS vs Vanilla CSS</h1>
           <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
           <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
             클래스 네이밍 스트레스에서 벗어나 오직 디자인과 구조에만 집중하는 시간
@@ -79,7 +79,9 @@
               예제 화면
             </h2>
             <div class="mb-6 px-1">
-              <p class="text-md leading-relaxed font-medium text-slate-600"></p>
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                프로젝트에 사용했던 Tailwind CSS 데모가 준비되어 있습니다.
+              </p>
             </div>
             <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
               <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
@@ -112,11 +114,96 @@
 
             <div class="space-y-4 px-1">
               <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
-                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+                <pre class="overflow-x-auto leading-relaxed"><code>&lt;div class="container"&gt;
+  &lt;div class="card"&gt;
+    &lt;div class="icon-box"&gt;
+      &lt;i class="fa-solid fa-flag"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;h3 class="card-title"&gt;Card Component&lt;/h3&gt;
+    &lt;p class="card-desc"&gt;
+      이 화면은 Vanilla CSS와 Tailwind 두 방식 모두로 동일하게 구현될 수 있습니다.
+    &lt;/p&gt;
+    &lt;button class="card-btn"&gt;
+      Button
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </div>
 
               <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
-                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+                <pre class="overflow-x-auto leading-relaxed"><code>.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background-color: #0f172a;
+  padding: 1.5rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 384px;
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #6366f1;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.card-btn {
+  width: 100%;
+  background-color: #4f46e5;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card-btn:hover {
+  background-color: #6366f1;
+}
+
+.card-btn:active {
+  transform: scale(0.95);
+}</code></pre>
               </div>
             </div>
           </div>
@@ -136,7 +223,28 @@
 
             <div class="px-1">
               <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
-                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+                <pre
+                  class="overflow-x-auto leading-relaxed"
+                ><code>&lt;div class="flex w-full flex-col items-center justify-center 
+            gap-12 md:flex-row"&gt;
+  &lt;div class="w-full max-w-sm rounded-2xl border border-slate-700 
+              bg-slate-800 p-6 shadow-xl"&gt;
+    &lt;div class="mb-4 flex h-10 w-10 items-center justify-center 
+                rounded-lg bg-indigo-500"&gt;
+      &lt;i class="fa-solid fa-flag text-white"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;h3 class="mb-2 text-lg font-bold"&gt;Card Component&lt;/h3&gt;
+    &lt;p class="mb-6 text-sm leading-relaxed text-slate-400"&gt;
+      이 화면은 Vanilla CSS와 Tailwind 두 방식 모두로 동일하게 구현될 수 있습니다.
+    &lt;/p&gt;
+    &lt;button class="w-full rounded-xl bg-indigo-600 px-4 py-3 text-sm 
+            font-semibold text-white transition-all duration-200 
+            hover:bg-indigo-500 active:scale-95"
+    &gt;
+      Button
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </div>
             </div>
           </div>
@@ -150,8 +258,23 @@
 
             <div class="max-w-4xl">
               <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-                <p></p>
+                <p>
+                  전통적인 방식인 Vanilla CSS는 스타일 시트와 HTML 사이를 끊임없이 오가며 클래스명을 고민해야 하고
+                  단순한 레이아웃 변경이나 상태 변화를 위해서도 미디어 쿼리와 셀렉터를 일일이 선언해야 하는 번거로움이
+                  있습니다.
+                </p>
+                <p>
+                  반면 Tailwind CSS의 Utility-first 방식은 별도의 클래스 설계 없이 HTML 내부에서 레이아웃과 반응형
+                  처리를 동시에 끝낼 수 있게 해줍니다.
+                  <code class="font-semibold text-teal-600">active:scale-95</code>나
+                  <code class="font-semibold text-teal-600">hover:bg-indigo-500</code>처럼 상태 변화를 클래스 한 단어로
+                  제어할 수 있다는 점은 스타일 정의가 HTML 구조 안에서 한눈에 파악할 수 있어 효율적이었습니다.
+                </p>
+                <p>
+                  화면 전체의 구조를 잡을때도 Tailwind는 <code class="font-semibold text-teal-600">md:flex-row</code>와
+                  같은 접두어 하나로 화면 크기에 따른 레이아웃 변화를 HTML 안에서 직접 해결합니다. 이러한 방식은 스타일
+                  정의에 들어가는 수고를 줄여준다고 생각합니다.
+                </p>
               </div>
             </div>
           </div>
@@ -165,9 +288,21 @@
 
             <div class="max-w-4xl">
               <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
-                <p></p>
-
-                <p></p>
+                <p>
+                  Tailwind를 사용하며 느낀 점은 모든 스타일을 무에서 유로 창조할 필요성이 줄었다는 것이었습니다.
+                  이전에는 색상 코드 하나, 여백 1px까지 매번 고민해야 했지만 Tailwind가 제공하는 정의된 수치 시스템
+                  안에서 코드를 짜는 것만으로도 충분히 일관성 있고 완성도 높은 결과물을 만들 수 있었습니다. 임의의
+                  수치가 필요한 순간에는 <code class="font-semibold text-teal-600">h-[550px]</code>처럼 대괄호를
+                  활용하거나 <code class="font-semibold text-teal-600">theme</code> 설정을 통해 확장할 수 있다는 점이
+                  매력적이었습니다.
+                </p>
+                <p>
+                  이전에는 웹 화면을 먼저 만들고 미디어 쿼리로 모바일을 맞추는 방식이 익숙했습니다. 하지만 Tailwind는
+                  기본 클래스가 모바일을 타겟팅하고 <code class="font-semibold text-teal-600">md: </code>
+                  <code class="font-semibold text-teal-600">lg: </code>같은 접두어를 붙여 큰 화면에 대응하는 방식을
+                  지향합니다. 처음에는 어색했지만 모바일을 기준으로 뼈대를 잡고 확장해 나가는 방식이 오히려 코드의
+                  중복을 줄이고 어떤 기기에서도 레이아웃이 깨지지 않게 만드는 데 훨씬 유리하다는 것을 경험했습니다.
+                </p>
               </div>
             </div>
           </div>
