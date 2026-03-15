@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
+
+    <link rel="stylesheet" href="/demos/gsap/demo-style.css" />
+  </head>
+  <body class="overflow-x-hidden bg-slate-900 text-white">
+    <section class="flex h-screen flex-col items-center justify-center text-center">
+      <div class="mb-6 text-teal-400">
+        <i class="fa-solid fa-mouse animate-bounce text-3xl"></i>
+      </div>
+      <h1 class="text-6xl font-black tracking-tighter md:text-8xl">SCROLL</h1>
+    </section>
+
+    <div class="mx-auto max-w-lg space-y-60 pb-60">
+      <div class="flex justify-start px-6">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1200"
+          class="flex h-40 w-60 items-center justify-center rounded-3xl bg-indigo-600 shadow-2xl shadow-indigo-500/20"
+        >
+          <i class="fa-solid fa-droplet text-5xl text-white"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-end px-6">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          class="flex h-40 w-60 items-center justify-center rounded-3xl bg-cyan-600 shadow-2xl shadow-cyan-500/20"
+        >
+          <i class="fa-solid fa-paper-plane text-5xl text-white"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-start px-6">
+        <div
+          data-aos="flip-right"
+          data-aos-easing="ease-out-back"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+          class="= flex h-40 w-60 items-center justify-center rounded-3xl bg-emerald-600 shadow-2xl shadow-emerald-500/20"
+        >
+          <i class="fa-solid fa-leaf text-5xl text-white"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-end px-6">
+        <div
+          data-aos="zoom-in"
+          data-aos-offset="300"
+          data-aos-duration="600"
+          class="= flex h-40 w-60 items-center justify-center rounded-3xl bg-amber-600 shadow-2xl shadow-amber-500/20"
+        >
+          <i class="fa-solid fa-sun text-5xl text-white"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-start px-6">
+        <div
+          data-aos="flip-up"
+          data-aos-duration="1500"
+          class="flex h-40 w-60 items-center justify-center rounded-3xl bg-rose-600 shadow-2xl shadow-rose-500/20"
+        >
+          <i class="fa-solid fa-heart text-5xl text-white"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-end px-6">
+        <div
+          data-aos="zoom-out"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="800"
+          class="flex h-40 w-60 items-center justify-center rounded-3xl bg-slate-700 shadow-2xl shadow-black/20"
+        >
+          <i class="fa-solid fa-moon text-5xl text-white"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 200,
+        once: false,
+      });
+    </script>
+  </body>
+</html>
