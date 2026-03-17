@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -7,152 +7,190 @@
 
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="/src/styles/style.css" />
   </head>
-  <body class="note-detail-page">
-    <header>
-      <div class="inner">
-        <a href="../../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="/" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <div class="header-links">
-          <a href="../note.html" class="logo">
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a href="../../index.html" class="logo">
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </div>
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="/note/note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="/" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <section class="note-detail">
-          <h1 class="note-title">Isotope Filtering</h1>
-
-          <h2>개요</h2>
-          <p>
-            Isotope는 웹 페이지 내 요소들을 동적으로 배치하고, 정렬하거나
-            필터링할 수 있게 도와주는 레이아웃 라이브러리입니다.
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Library
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">Isotope Filtering</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            카테고리별로 분류하고 유연한 애니메이션으로 시각적 즐거움을 더한 필터링 시스템
           </p>
+        </section>
 
-          <h2>주요 내용</h2>
-          <ul>
-            <li>요소들이 벽돌처럼 자연스럽게 쌓이는 그리드 레이아웃 구성</li>
-            <li>카테고리에 따라 필요한 요소만 보여주는 필터링 기능</li>
-            <li>
-              Isotope의 <code>itemSelector</code>, <code>filter</code>,
-              <code>transitionDuration</code> 속성 사용
-            </li>
-          </ul>
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                많은 콘텐츠 속에서 원하는 정보만 빠르게 추려낼 수 있도록 Isotope 필터링을 적용했습니다. 단순히 요소를
+                숨기고 보여주는 수준을 넘어 요소들이 스스로 자리를 찾아가는 레이아웃 전환으로 시각적 즐거움과 탐색의
+                편의성을 동시에 챙겼습니다.
+              </p>
+              <p>
+                카테고리를 클릭할 때마다 요소들이 촤르륵 정돈되는 애니메이션은 페이지에 생동감을 더해줍니다. 다양한
+                크기의 콘텐츠를 깔끔하게 배치할 수 있어 완성도 높은 레이아웃을 유지하면서도 사용자가 정보를 탐색하는
+                과정 자체를 즐길 수 있습니다.
+              </p>
+            </div>
+          </div>
 
-          <h2>사용한 예제</h2>
-          <iframe src="./demos/isotope-filtering-demo/index.html"> </iframe>
+          <!---예제 화면--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 화면
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                프로젝트에 사용했던 Isotope Filtering 효과 데모가 준비되어 있습니다.
+              </p>
+            </div>
+            <div class="overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-200">
+              <div class="flex items-center justify-between bg-slate-800 px-4 py-2 text-xs text-slate-400">
+                <div class="flex gap-1.5">
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                  <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+                </div>
+              </div>
+              <iframe src="/demos/isotope/filtering.html" class="h-[550px] w-full border-none" loading="lazy"></iframe>
+            </div>
+          </div>
 
-          <h2>예제 코드</h2>
-          <pre><code>
-let grid;
+          <!---예제 코드--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              예제 코드
+            </h2>
 
-window.addEventListener("load", () => {
-  init();
-  filter(document.querySelectorAll("main ul li"));
-});
+            <div class="space-y-10 px-1">
+              <div class="grid gap-4 px-1 md:grid-cols-2">
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900"></h3>
 
-function init() {
-  grid = new Isotope("section", {
-    itemSelector: "article",
-    columnWidth: "article",
-    percentPosition: true,
-    transitionDuration: "0.5s",
-  });
-}
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500"></p>
+                </div>
 
-function filter(arr) {
-  for (let el of arr) {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900"></h3>
 
-      const sort = e.currentTarget.querySelector("a").getAttribute("href");
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500"></p>
+                </div>
 
-      grid.arrange({
-        filter: sort,
-      });
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900"></h3>
 
-      for (let el of arr) {
-        el.classList.remove("on");
-      }
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500"></p>
+                </div>
 
-      e.currentTarget.classList.add("on");
-    });
-  }
-}
-        </code></pre>
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900"></h3>
 
-          <h2>사용한 속성 설명</h2>
-          <ul>
-            <li>
-              <strong>itemSelector</strong>: 레이아웃 내에서 정렬 대상으로
-              사용할 요소를 선택하는 선택자
-            </li>
-            <li>
-              <strong>columnWidth</strong>: 레이아웃 계산 시 기준이 될 요소 너비
-              지정
-            </li>
-            <li>
-              <strong>percentPosition</strong>: CSS의 퍼센트 단위 위치 계산을
-              정확하게 반영
-            </li>
-            <li>
-              <strong>transitionDuration</strong>: 필터 적용 등 레이아웃 재배치
-              시 애니메이션 효과의 실행 시간
-            </li>
-            <li>
-              <strong>filter</strong>: 어떤 요소만 보여줄지 필터링할 때 사용하는
-              값
-            </li>
-          </ul>
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500"></p>
+                </div>
+              </div>
 
-          <h2>나의 생각 및 응용</h2>
-          <p>
-            Isotope.js의 filter 속성을 활용해 다양한 요소들을 깔끔하게 배치하고,
-            카테고리별로 필요한 콘텐츠만 보여줄 수 있는 동적인 필터링 기능을
-            구현할 수 있었습니다.
-          </p>
-          <p>
-            사용자가 원하는 주제나 분류에 따라 콘텐츠를 즉시 걸러내 보여주는
-            인터랙티브한 UI는 사용자의 편의성을 크게 향상시켜 보다 쾌적한 경험을
-            제공한다고 느꼈습니다.
-          </p>
-          <p>
-            이미지 갤러리, 블로그 글, 상품 리스트 등 다양한 콘텐츠를
-            카테고리별로 분류하고 방문자가 쉽게 원하는 정보를 찾을 수 있도록
-            하는 데 이러한 필터링 효과를 활용하면 좋을 것 같습니다.
-          </p>
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code></code></pre>
+              </div>
+            </div>
+          </div>
 
-          <h2>기술 적용 사례</h2>
-          <p>
-            이 기술은 반응형 웹 페이지 프로젝트와 포트폴리오 note 페이지의
-            필터링 구현에 활용했습니다.
-          </p>
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
 
-          <h2>관련 자료</h2>
-          <ul>
-            <li>
-              <a href="https://isotope.metafizzy.co/filtering" target="_blank">
-                isotope.js - filtering
-              </a>
-            </li>
-          </ul>
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
         </section>
       </div>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
   </body>
