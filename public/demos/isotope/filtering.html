@@ -7,9 +7,102 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" defer></script>
+
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
     <link rel="stylesheet" href="/demos/gsap/demo-style.css" />
+    <script src="/demos/isotope/filtering.js" defer></script>
+
+    <style>
+      .filter-nav button.active-filter {
+        background-color: #2dd4bf;
+        border-color: #2dd4bf;
+      }
+    </style>
   </head>
-  <body></body>
+  <body class="min-h-screen overflow-x-hidden bg-slate-900 p-6 text-white">
+    <div class="mx-auto max-w-5xl">
+      <nav class="mb-10 px-4">
+        <ul class="filter-nav flex flex-wrap justify-center gap-3">
+          <li>
+            <button
+              data-filter="*"
+              class="active-filter rounded-full border border-slate-700 bg-slate-800 px-5 py-2 text-xs font-bold transition-all hover:border-teal-400 md:px-7 md:text-sm"
+            >
+              ALL
+            </button>
+          </li>
+          <li>
+            <button
+              data-filter=".odd"
+              class="rounded-full border border-slate-700 bg-slate-800 px-5 py-2 text-xs font-bold transition-all hover:border-teal-400 md:px-7 md:text-sm"
+            >
+              ODD
+            </button>
+          </li>
+          <li>
+            <button
+              data-filter=".even"
+              class="rounded-full border border-slate-700 bg-slate-800 px-5 py-2 text-xs font-bold transition-all hover:border-teal-400 md:px-7 md:text-sm"
+            >
+              EVEN
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="grid-container">
+        <div class="grid-item odd w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-indigo-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-code text-4xl text-white/80"></i>
+          </div>
+        </div>
+
+        <div class="grid-item even w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-orange-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-bolt text-4xl text-white/80"></i>
+          </div>
+        </div>
+
+        <div class="grid-item odd w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-indigo-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-cube text-4xl text-white/80"></i>
+          </div>
+        </div>
+
+        <div class="grid-item even w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-orange-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-mobile-screen text-4xl text-white/80"></i>
+          </div>
+        </div>
+
+        <div class="grid-item odd w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-indigo-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-rocket text-4xl text-white/80"></i>
+          </div>
+        </div>
+
+        <div class="grid-item even w-1/2 p-3 md:w-1/3">
+          <div
+            class="flex aspect-video items-center justify-center rounded-3xl bg-orange-500 shadow-xl ring-1 ring-white/10 transition-transform hover:scale-105"
+          >
+            <i class="fas fa-terminal text-4xl text-white/80"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
