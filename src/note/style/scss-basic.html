@@ -1,187 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCSS Nesting</title>
+    <title>SCSS Variables & Nesting</title>
 
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
   </head>
-  <body class="note-detail-page">
-    <header>
-      <div class="inner">
-        <a href="../../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="../../../index.html" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <div class="header-links">
-          <a href="../note.html" class="logo">
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a href="../../index.html" class="logo">
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </div>
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="../note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="../../../index.html" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <section class="note-detail">
-          <h1 class="note-title">SCSS Nesting</h1>
-
-          <h2>개요</h2>
-          <p>
-            Sass의 유용한 기능중 하나는 중첩(Nesting) 기능입니다.<br />
-            상위 선택자를 반복해서 쓰지않고 좀 더 편리하게 복잡한 구조를 작성할
-            수 있습니다.
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Style
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">SCSS Variables & Nesting</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            반복되는 스타일 상수를 관리하는 변수와 HTML 구조를 반영한 중첩 문법
           </p>
+        </section>
 
-          <h2>주요 내용</h2>
-          <ul>
-            <li>중첩(Nesting)</li>
-            <li>Ampersand(&)</li>
-            <li>@at-root</li>
-          </ul>
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
 
-          <div class="scss-code">
-            <div>
-              <h2>SCSS 코드</h2>
-              <pre><code>
-.footer_text {
-  margin-top: 30px;
-  text-align: center;
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                프로젝트의 규모가 커질수록 색상값 하나를 바꾸기 위해 수십 개의 CSS 파일을 뒤지거나 복잡하게 얽힌 선택자
+                때문에 스타일 우선순위가 꼬이는 문제는 개발의 효율성을 저하시킵니다.
+              </p>
+              <p>
+                최근 Native CSS에서도 변수와 중첩 문법이 도입되고 있으나 브라우저 호환성에 구애받지 않는 안정성과 강력한
+                산술 연산 기능을 갖춘 SCSS를 선택했습니다. 이를 통해 프로젝트 초기부터 확장 가능하고 체계적인 디자인
+                시스템의 기반을 구축하고자 했습니다.
+              </p>
+            </div>
+          </div>
 
-  span {
-    font-size: 12px;
-    color: gray;
-    margin-right: 25px;
+          <!---문법 대조 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              문법 대조 분석
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                동일한 컴포넌트를 구현할 때 발생하는 코드의 중복을 제거하고 계층 구조를 반영한 중첩 문법으로 가독성을
+                높였습니다.
+              </p>
+            </div>
 
-    &:last-child {
-      margin-right: 0;
+            <div class="grid gap-4 px-1 md:grid-cols-2">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <div class="mb-4 text-[11px] font-bold tracking-widest text-slate-400">CSS</div>
+                <pre class="overflow-x-auto leading-relaxed"><code>.card {
+  width: 100%;
+  max-width: 384px;
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card__btn {
+  width: 100%;
+  background-color: #4f46e5;
+  padding: 0.75rem 1rem;
+}
+
+.card__btn:hover {
+  background-color: #6366f1;
+}</code></pre>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <div class="mb-4 text-[11px] font-bold tracking-widest text-teal-400">SCSS</div>
+                <pre class="overflow-x-auto leading-relaxed"><code>$card-bg: #1e293b;
+$primary: #4f46e5;
+$primary-light: #6366f1;
+
+.card {
+  width: 100%;
+  max-width: 384px;
+  background-color: $card-bg;
+  padding: 1.5rem;
+  border-radius: 1rem;
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__btn {
+    width: 100%;
+    background-color: $primary;
+    padding: 0.75rem 1rem;
+
+    &:hover {
+      background-color: $primary-light;
     }
   }
-}
-        </code></pre>
-            </div>
-            <div>
-              <h2>CSS 코드</h2>
-              <pre><code>
-.footer_text {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.footer_text span {
-  font-size: 12px;
-  color: gray;
-  margin-right: 25px;
-}
-
-.footer_text span:last-child {
-  margin-right: 0;
-}
-        </code></pre>
+}</code></pre>
+              </div>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              <strong>중첩(Nesting)</strong>: 반복되는 상위 선택자를 생략하고,
-              계층 구조에 따라 중괄호 {} 안에 하위 선택자를 중첩해 작성할 수
-              있는 기능
-            </li>
-            <li>
-              <strong>Ampersand(&)</strong>: & 키워드가 참조한 상위 선택자로
-              치환되는 기능
-            </li>
-          </ul>
+          <!---실전 적용 사례--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              실전 적용 사례
+            </h2>
 
-          <div class="scss-code">
-            <div>
-              <h2>SCSS 코드</h2>
-              <pre><code>
-.message {
-  color: black;
+            <div class="space-y-10 px-1">
+              <div class="grid gap-4 px-1 md:grid-cols-2">
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">Variables</h3>
 
-  @at-root .global-message {
-    color: red;
-    font-weight: bold;
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    map.get과 전역 변수를 활용하여 컬러와 폰트 규격을 체계적으로 관리했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">Nesting</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    HTML의 계층 구조를 CSS에 그대로 투영하여 선택자 중복을 제거하고 가독성을 높였습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">& Selector</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    부모 참조 선택자를 통해 BEM 네이밍(__item, &-text)을 효율적으로 구현했습니다.
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <h3 class="mb-2 text-sm font-bold text-slate-900">Responsive</h3>
+
+                  <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                    미디어 쿼리를 컴포넌트 내부에 중첩하여 기기별 스타일 대응을 관리했습니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>/* 실제 프로젝트 _home.scss 소스코드의 일부입니다. */
+
+@use "sass:map";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixin" as mix;
+
+.main {
+  height: 100%;
+
+  &__item {
+    @include mix.flex-col;
+    position: relative;
+    transition: all 0.6s;
+
+    &-text {
+      color: map.get(var.$colors, "white");
+      
+      p {
+        @include mix.font-setup(map.get(var.$font-sizes, p));
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      .main__item-overlay { transform: translateX(0); }
+    }
+
+    @include mix.respond(xl) {
+      padding: 50px 30px;
+      
+      &-text p { font-size: 0.9em; }
+    }
+
+    @include mix.respond(md) {
+      flex-basis: 45%;
+      min-height: 500px;
+    }
   }
-}
-        </code></pre>
-            </div>
-            <div>
-              <h2>CSS 코드</h2>
-              <pre><code>
-.message {
-  color: black;
-}
-
-.global-message {
-  color: red;
-  font-weight: bold;
-}
-        </code></pre>
+}</code></pre>
+              </div>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              <strong>@at-root</strong>: 중첩 구조에서 상위로 빠져나가는 기능
-            </li>
-            <li>
-              조건부 스타일, 구조적 관리, 컴파일 제어 등 여러 경우에도 효과적인
-              기능
-            </li>
-            <li>코드는 지역적으로 위치, 결과는 전역으로</li>
-          </ul>
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
 
-          <h2>나의 생각 및 응용</h2>
-          <p>
-            SCSS의 중첩 기능을 활용하니 반복 코드를 줄일 수 있어 훨씬 깔끔하고
-            작성이 편했습니다.<br />
-            특히 상위 선택자가 복잡할 때 코드 가독성이 좋아지고, 재사용할 때도
-            효율적이라는 걸 느꼈습니다.
-          </p>
-          <p>
-            실제 프로젝트에서는 주로 &와 일반 중첩 정도만 사용했지만, 공식
-            문서를 참고해 @at-root도 함께 실습하며 구조에 대한 이해도를 높일 수
-            있었습니다.
-          </p>
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  Native CSS에도 변수와 중첩 문법이 도입되고 있지만 Variables(<code class="font-semibold text-teal-600"
+                    >$</code
+                  >)와 Sass Map을 활용한 시스템은 더욱 강력한 제어력을 제공합니다. 단순히 값을 저장하는 것을 넘어
+                  <code class="font-semibold text-teal-600">map.get()</code> 함수를 통한 복잡한 산술 연산과 디자인
+                  시스템의 규격을 중앙에서 체계적으로 관리할 수 있기 때문입니다. 이는 대규모 프로젝트에서도 디자인의
+                  일관성을 유지하는 기반이 됩니다.
+                </p>
+                <p>
+                  Nesting은 단순한 시각적 계층화를 넘어 부모 참조 선택자(<code class="font-semibold text-teal-600"
+                    >&</code
+                  >)와의 결합을 통해 그 진가를 발휘합니다. Native CSS의 중첩보다 직관적인 BEM 네이밍 구현을 지원하며
+                  특정 컴포넌트의 스타일을 한군데에 모아 관리할 수 있도록 돕습니다. 결과적으로 브라우저 호환성 걱정 없이
+                  구조적 이점을 누릴 수 있으며 클래스명 변경에도 유연하게 대응하는 탄탄한 코드 구조를 완성합니다.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          <h2>기술 적용 사례</h2>
-          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
 
-          <h2>관련 자료</h2>
-          <ul>
-            <li>
-              <a
-                href="https://sass-lang.com/documentation/style-rules/#nesting"
-                target="_blank"
-                >SCSS Nesting</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://sass-lang.com/documentation/at-rules/at-root/"
-                target="_blank"
-                >SCSS @at-root</a
-              >
-            </li>
-          </ul>
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  초기 설계 단계에서 공통 요소를 추출해 변수로 구조화하는 과정은 단순히 코드를 작성하는 것보다 많은
+                  고민이 필요했습니다. 하지만 이를 통해 디자인 가이드라인을 코드화하는 법을 익혔고 컬러나 폰트 규격이
+                  바뀌더라도 변수 수정만으로 프로젝트 전체를 제어하는 효율성을 체감했습니다. 결과적으로 불필요한 반복
+                  작업을 줄이고 프로젝트 규모가 커져도 스타일의 통일성을 유지할 수 있는 기반이 되었습니다.
+                </p>
+                <p>
+                  Nesting과 BEM을 결합하여 HTML 구조가 한눈에 보이는 직관적인 스타일 시트를 작성했습니다. 이는 단순히
+                  코드를 중첩하는 것을 넘어 스타일의 소속 관계를 즉각적으로 파악할 수 있게 돕는 읽기 좋은 코드에 대한
+                  기준을 세우는 계기가 되었습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
         </section>
       </div>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
   </body>
