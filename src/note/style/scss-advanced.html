@@ -1,211 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCSS @import</title>
+    <title>SCSS @mixin, Map & List</title>
 
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
   </head>
-  <body class="note-detail-page">
-    <header>
-      <div class="inner">
-        <a href="../../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="../../../index.html" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <div class="header-links">
-          <a href="../note.html" class="logo">
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a href="../../index.html" class="logo">
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </div>
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="../note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="../../../index.html" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <section class="note-detail">
-          <h1 class="note-title">SCSS @import</h1>
-
-          <h2>개요</h2>
-          <p>
-            SCSS에서 @import는 여러 SCSS 파일을 하나로 합쳐주는 기능입니다.<br />
-            이를 통해 스타일을 기능별, 파트별로 나누어 관리하고, 최종 빌드 시 한
-            CSS 파일로 컴파일할 수 있게 도와줍니다.
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Style
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">SCSS @mixin, Map & List</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            재사용 가능한 로직 설계와 데이터를 활용한 스타일 자동화
           </p>
+        </section>
 
-          <h2>주요 내용</h2>
-          <ul>
-            <li>여러 파일 가져오기</li>
-            <li>파일 분할(Partials)</li>
-          </ul>
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
 
-          <h2>예제 코드</h2>
-          <pre><code>
-/*main.scss*/
-
-@import "variables";
-@import "reset";
-@import "mixin";
-@import "button";
-@import "components";
-@import "header";
-@import "layout";
-@import "footer";
-        </code></pre>
-
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              위처럼 작성하면 각각 파일의 내용을 불러와서 현재 파일에
-              포함시킵니다.
-            </li>
-            <li>
-              보통 main.scss에서 모든 SCSS 파일을 @import하여 중앙에서
-              관리합니다.
-            </li>
-          </ul>
-
-          <div class="scss-code">
-            <div>
-              <h2>컴파일 전</h2>
-              <pre><code>
-...
-
-  ├─ scss
-  │  ├─ variables.scss
-  │  ├─ reset.scss
-  │  ├─ mixin.scss
-  │  ├─ button.scss
-  │  ├─ components.scss
-  │  ├─ header.scss
-  │  ├─ layout.scss
-  │  ├─ footer.scss
-  │  └─ main.scss
-
-...
-        </code></pre>
-            </div>
-            <div>
-              <h2>컴파일 후</h2>
-              <pre><code>
-...
-  ├─ css
-  │  ├─ variables.css
-  │  ├─ reset.css
-  │  ├─ mixin.css
-  │  ├─ button.css
-  │  ├─ components.css
-  │  ├─ header.css
-  │  ├─ layout.css
-  │  ├─ footer.css
-  │  └─ main.css
-  ├─ scss
-  │  ├─ ...
-...
-        </code></pre>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                단순히 스타일 값을 변수에 담아 재사용하는 수준을 넘어 자주 사용되는 디자인 패턴을 하나의 독립된 기능으로
+                정의하고 필요할 때마다 호출해 사용하는 도구 중심의 설계가 필요했습니다. 스타일 코드를 효율적으로 통합
+                관리하기 위해 CSS의 한계를 넘어 조건과 데이터에 따라 스타일이 결정되는 로직을 SCSS의 심화 기능으로
+                구현했습니다.
+              </p>
+              <p>
+                재사용 가능한 @mixin과 복합적인 디자인 규격을 체계화하는 Map & List를 결합하여 스타일의 정의와 실행을
+                분리했습니다. 이를 통해 직접적인 코드 수정 없이 데이터 변경만으로 스타일 전체를 제어할 수 있는 유연한
+                환경을 만들고자 했습니다.
+              </p>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              프로젝트 규모가 커지면 파일들을 각 기능과 부분으로 나눠 유지
-              보수가 쉽도록 관리하게 됩니다.
-            </li>
-            <li>
-              파일이 점점 많아지는데, 모든 파일이 컴파일 시 각각의 .css 파일로
-              나눠서 저장된다면 불필요한 결과물이 생기게 됩니다.
-            </li>
-          </ul>
-
-          <div class="scss-code">
-            <div>
-              <h2>컴파일 전</h2>
-              <pre><code>
-...
-  ├─ scss
-  │  ├─ _variables.scss
-  │  ├─ _reset.scss
-  │  ├─ _mixin.scss
-  │  ├─ _button.scss
-  │  ├─ _components.scss
-  │  ├─ _header.scss
-  │  ├─ _layout.scss
-  │  ├─ _footer.scss
-  │  └─ main.scss
-...
-        </code></pre>
+          <!---실전 적용 사례--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              @mixin 실전 적용 사례
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                반복되는 디자인 패턴을 필요한 설정값만 전달하면 완성되는 표준 가이드로 설계했습니다. 번거로운 수치
+                계산이나 중복 작성을 로직으로 대체하여 한줄의 코드로 일관성 있게 관리할 수 있도록 구현했습니다.
+              </p>
             </div>
-            <div>
-              <h2>컴파일 후</h2>
-              <pre><code>
-...
 
-  ├─ css
-  │  └─ main.css
-  ├─ scss
-  │  ├─_variables.scss
-  │  ├─_reset.scss
-  │  ├─ ...
-  │  ├─ _footer.scss
-  │  └─ main.scss
+            <div class="px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre
+                  class="overflow-x-auto leading-relaxed"
+                ><code>/* 실제 프로젝트 _mixin.scss 소스코드의 일부입니다. */
 
-...
-        </code></pre>
+@mixin pos-center($x: true, $y: true) {
+  position: absolute;
+  @if $x and $y {
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $x {
+    left: 50%; transform: translateX(-50%);
+  } @else if $y {
+    top: 50%; transform: translateY(-50%);
+  }
+}
+
+@mixin font-setup(
+  $size,
+  $family: map.get(var.$font-families, base),
+  $weight: normal,
+  $style: normal
+) {
+  font-size: #{$size};
+  line-height: var.$line-height-base;
+  font-weight: $weight;
+  font-style: $style;
+  font-family: $family;
+}
+
+@mixin respond($breakpoint) {
+  @media (max-width: map.get(var.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+/* -------------------------------------------------------- */
+
+.title { @include mix.font-setup(32px, $weight: bold); }
+.banner-img { @include mix.pos-center($y: false); }
+@include mix.respond(md) { .container { width: 100%; } }</code></pre>
+              </div>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              파일 이름이 언더스코어(_)로 시작하면 SCSS가 partial 파일(조각
-              파일)로 인식합니다.
-            </li>
-            <li>
-              단독으로 컴파일되지 않고, 오직 @import로만 포함되도록 처리됩니다.
-            </li>
-          </ul>
+          <!---실전 적용 사례--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              Map & List 실전 적용 사례
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                디자인 규격을 데이터 구조로 정의하고 이를 루프 안에서 자동으로 생성하는 시스템을 구축했습니다. 개별
+                클래스를 일일이 작성하는 번거로움을 없애고 데이터 수정만으로 전체 스타일을 유연하게 확장할 수 있는
+                구조를 완성했습니다.
+              </p>
+            </div>
 
-          <h2>나의 생각 및 응용</h2>
-          <p>
-            CSS에서는 각 기능별로 스타일을 나눠서 작성해도, HTML에
-            &lt;link&gt;로 각각 연결하거나 직접 병합해야 하는 번거로움이
-            있었습니다.
-          </p>
-          <p>
-            반면 SCSS에서는 @import를 사용해 필요한 스타일 파일들을 하나의 메인
-            파일로 불러올 수 있어서 관리가 훨씬 편리했고,<br />
-            컴파일 시 단일 CSS 파일로 생성되어 배포나 유지보수에도 효율적이라는
-            장점을 느꼈습니다.
-          </p>
+            <div class="px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre
+                  class="overflow-x-auto leading-relaxed"
+                ><code>/* 실제 프로젝트 _gallery.scss 소스코드의 일부입니다. */
 
-          <h2>기술 적용 사례</h2>
-          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+$articles: (
+  "1": (width: 700px, height: 400px, bg: "700x400.png", inner: ("MerryChristmas")),
+  "5-1": (width: 490px, height: 240px, bg: "490x240-1.png", inner: ("Programmer")),
+  "7": (
+    width: 1000px, height: 371px, bg: "1000x371.png",
+    inner: ("Yours"), inner-size: (686px, 60px),
+    pos-center: true, text-shadow: true
+  )
+);
 
-          <h2>관련 자료</h2>
-          <ul>
-            <li>
-              <a
-                href="https://sass-lang.com/documentation/at-rules/import/"
-                target="_blank"
-                >SCSS @import</a
-              >
-            </li>
-          </ul>
+@each $key, $props in $articles {
+  .article--#{$key} {
+    width: map.get($props, width);
+    height: map.get($props, height);
+    float: left; position: relative;
+
+    @if map.has-key($props, bg) {
+      background-image: url(../img/#{map.get($props, bg)});
+    }
+
+    @if map.has-key($props, inner) {
+      @each $inner-name in map.get($props, inner) {
+        .#{$inner-name} {
+          position: absolute;
+
+          @if map.has-key($props, inner-size) {
+            $size: map.get($props, inner-size);
+            width: list.nth($size, 1);
+            height: list.nth($size, 2);
+          }
+
+          @if map.get($props, pos-center) { @include mix.pos-center(); }
+
+          @if $key == "5-1" and $inner-name == "Programmer" {
+            top: 160px; width: 300px;
+            @include mix.pos-center($y: false);
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  일반적인 CSS 방식이 모든 상황에 맞춰 중복된 코드를 여러번 복사해서 붙여넣어야 했다면 이번 설계에는
+                  매개변수와 조건부 로직을 결합하여 상황에 맞춰 스타일을 결정하는 도구를 만들었습니다. 복잡한 계산 없이
+                  한 줄의 호출만으로 디자인을 완성할 수 있었습니다. 이는 수동 작업의 한계를 로직으로 해결하여 나중에
+                  디자인이 바뀌어도 도구 하나만 수정하면 전체가 한 번에 바뀌는 편리한 관리 환경을 만들어줍니다.
+                </p>
+                <p>
+                  스타일을 클래스마다 일일이 수동으로 관리하던 방식에서 벗어나 모든 디자인 수치를 map과 list구조의
+                  데이터로 정리했습니다. 단순히 값을 저장하는 CSS 변수의 기능을 넘어 보간법(<code
+                    class="font-semibold text-teal-600"
+                    >#{}</code
+                  >)과 <code class="font-semibold text-teal-600">map.get</code>,
+                  <code class="font-semibold text-teal-600">list.nth</code> 함수를 활용해 데이터 명단만으로 스타일을
+                  자동 생성하는 시스템을 구현했습니다. 결과적으로 수백 줄의 코드를 직접 수정해야 했던 방식과 달리
+                  데이터를 추가하거나 수정하면 전체 화면의 스타일을 자유롭게 조절할 수 있는 유연한 구조를 완성했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  반복되는 디자인 패턴을 단순히 복사하는 것이 아니라 이를 분석하고 @mixin과 조건부 로직으로 깔끔하게
+                  정리하는 법을 익혔습니다. 이를 통해 작업 속도를 높이는 것은 물론 누구나 한 줄의 코드로 일관된 결과물을
+                  낼 수 있는 사용하기 쉬운 도구를 만드는 역량을 키웠습니다.
+                </p>
+                <p>
+                  스타일을 개별적인 코드의 나열이 아닌 관리 가능한 데이터 구조로 바라보는 시야를 갖게 되었습니다. 디자인
+                  규격을 체계적으로 정리하고 이를 자동화 시스템과 연결함으로써 프로젝트의 규모가 커져도 데이터
+                  수정만으로 전체 스타일을 제어할 수 있는 효율적인 관리 방식을 제 것으로 만들었습니다.
+                </p>
+                <p>
+                  당장 작성하기 편한 코드보다 나중에 수정하기 좋은 구조가 좋은 설계라는 것을 깨달았습니다. 코드 간의
+                  의존성을 줄이고 확장성을 고려한 설계를 통해 서비스의 변화나 디자인 수정 요청에도 빠르고 유연하게
+                  대응할 수 있는 유지보수 감각을 기를 수 있었습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
         </section>
       </div>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
   </body>
