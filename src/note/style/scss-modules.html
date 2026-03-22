@@ -1,202 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCSS Variables</title>
+    <title>SCSS @use & @forward</title>
 
     <script src="https://kit.fontawesome.com/3074568ad1.js"></script>
 
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
   </head>
-  <body class="note-detail-page">
-    <header>
-      <div class="inner">
-        <a href="../../index.html"><h1>My Portfolio</h1></a>
+  <body class="bg-slate-50 text-slate-800 selection:bg-teal-500 selection:text-white">
+    <!---header--->
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex w-[90%] max-w-[1200px] items-center justify-between px-4 py-4">
+        <h1 class="text-2xl font-bold tracking-tighter text-slate-800">
+          <a href="../../../index.html" class="transition-opacity hover:opacity-80">My Portfolio</a>
+        </h1>
 
-        <div class="header-links">
-          <a href="../note.html" class="logo">
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a href="../../index.html" class="logo">
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </div>
+        <nav>
+          <ul class="flex items-center gap-8 text-slate-600">
+            <li>
+              <a href="../note.html" class="flex items-center justify-center transition-colors hover:text-teal-500"
+                ><i class="fa-solid fa-book text-xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="../../../index.html" class="flex items-center justify-center transition-colors hover:text-black"
+                ><i class="fa-solid fa-house text-xl"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <div class="inner">
-        <section class="note-detail">
-          <h1 class="note-title">SCSS Variables</h1>
-
-          <h2>개요</h2>
-          <p>
-            변수로 사용 가능한 형태는 숫자, 문자, 색상, 논리, null, lists, maps
-            입니다.<br />
-            변수 이름 앞에는 항상 $를 붙입니다.
+    <!---main--->
+    <main class="min-h-screen bg-slate-50 pt-30 pb-20">
+      <div class="container mx-auto max-w-5xl px-4">
+        <!---카테고리, 제목--->
+        <section class="mb-12 flex flex-col items-center text-center">
+          <span
+            class="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold tracking-widest text-teal-600 ring-1 ring-teal-200"
+          >
+            Style
+          </span>
+          <h1 class="text-3xl font-black tracking-tighter text-slate-900 md:text-5xl">SCSS @use & @forward</h1>
+          <div class="mt-4 h-1.5 w-15 rounded-full bg-teal-400"></div>
+          <p class="mt-6 text-lg font-medium text-slate-500 md:text-xl">
+            네임스페이스를 활용한 독립적 모듈 설계와 안전한 파일 통합 구조
           </p>
+        </section>
 
-          <h2>주요 내용</h2>
-          <ul>
-            <li>변수 유효 범위</li>
-            <li>변수 재할당</li>
-            <li>!global</li>
-            <li>!default</li>
-          </ul>
+        <section class="space-y-20 rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-12">
+          <!---소개--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              소개
+            </h2>
 
-          <div class="scss-code">
-            <div>
-              <h2>SCSS 코드</h2>
-              <pre><code>
-$btn-color: rgb(53, 52, 52); // black 계열
-.btn {
-  color: $btn-color;
-  border: 2px solid $btn-color;
-  &:hover {
-    background-color: $btn-color;
-    color: white;
-  }
-}
-.title {
-  .btn {
-    $btn-color: rgb(94, 30, 30); // brown 계열
-    color: $btn-color;
-    border: 2px solid $btn-color;
-    &:hover {
-      background-color: $btn-color;
-      color: white;
-    }
-  }
-}
-.color {
-  color: $btn-color; // black 계열
-}
-        </code></pre>
-            </div>
-            <div>
-              <h2>CSS 코드</h2>
-              <pre><code>
-.btn {
-  color: rgb(53, 52, 52);
-  border: 2px solid rgb(53, 52, 52);
-}
-
-.btn:hover {
-  background-color: rgb(53, 52, 52);
-  color: white;
-}
-
-.title .btn {
-  color: rgb(94, 30, 30);
-  border: 2px solid rgb(94, 30, 30);
-}
-
-.title .btn:hover {
-  background-color: rgb(94, 30, 30);
-  color: white;
-}
-
-.color {
-  color: rgb(53, 52, 52);
-}
-        </code></pre>
+            <div class="text-md max-w-4xl space-y-4 px-1 leading-relaxed break-keep text-slate-600">
+              <p>
+                스타일 시트가 커질수록 변수가 충돌하거나 코드가 중복 로드되는 전역 오염 문제를 해결해야 했습니다. 단순히
+                파일을 합치는 과거의 @import 방식을 넘어 현대적인 @use와 @forward 시스템을 도입하여 각 스타일이 서로
+                간섭하지 않는 독립적인 모듈 구조를 설계했습니다.
+              </p>
+              <p>
+                모듈마다 고유한 네임스페이스를 부여해 변수 출처를 명확히 하고 _index.scss와 @forward를 활용해 여러
+                파일을 하나의 통로로 통합했습니다. 이를 통해 복잡한 경로 추적 없이 단 하나의 호출만으로 프로젝트 전체
+                스타일을 안전하게 제어할 수 있는 구조를 구현했습니다.
+              </p>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              변수는 선언된 블록({}) 내에서만 유효범위를 가집니다. (brown 계열
-              $btn-color는 .title .btn 범위에서만)
-            </li>
-            <li>
-              변수에 변수를 다시 할당할 수 있습니다. (black 계열이었던
-              $btn-color를 brown 계열로 재할당)
-            </li>
-          </ul>
-
-          <div class="scss-code">
-            <div>
-              <h2>SCSS 코드</h2>
-              <pre><code>
-.box1 {
-  $color: red !global;
-  background: $color;
-}
-.box2 {
-  background: $color;
-}
-.box3 {
-  $color: blue !default;
-  background: $color;
-}
-        </code></pre>
+          <!---실전 적용 사례--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              @forward 실전 적용 사례
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                디자인 자원을 성격에 따라 폴더별로 분류하고 각 폴더의 _index.scss에서 @forward를 통해 하위 파일들을
+                하나의 모듈로 통합했습니다. 이를 통해 외부에서는 수많은 개별 파일의 상세 경로를 일일이 추적할 필요 없이
+                폴더 이름만으로 모든 자원을 참조할 수 있는 구조입니다.
+              </p>
             </div>
-            <div>
-              <h2>CSS 코드</h2>
-              <pre><code>
-.box1 {
-  background: red;
-}
 
-.box2 {
-  background: red;
-}
+            <div class="px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>/* abstracts/_index.scss */
 
-.box3 {
-  background: red;
-}
-        </code></pre>
+@forward 'variables';
+@forward 'mixin';
+
+/* base/_index.scss */
+
+@forward 'reset';
+@forward 'body';
+
+/* layout/_index.scss */
+
+@forward 'header';
+@forward 'footer';
+@forward 'wrapper';
+
+/* pages/_index.scss */
+
+@forward 'home';
+@forward 'select'; 
+
+/* -------------------------------------------------------- */
+
+/* main.scss */
+
+@use 'abstracts';
+@use 'base';
+@use 'layout';
+@use 'pages';
+@use 'components/button';
+@use 'utilities/utilities';</code></pre>
+              </div>
             </div>
           </div>
 
-          <h2>속성 설명</h2>
-          <ul>
-            <li>
-              <strong>!global</strong>: 변수를 전역 범위(global scope)에 선언할
-              때 사용합니다. 중첩된 범위에서 변수를 선언해도 !global을 붙이면
-              전역 변수로 저장됩니다.
-            </li>
-            <li>
-              <strong>!default</strong>: 변수가 선언되지 않았을 때만 값을
-              지정합니다. 이미 값이 있으면 덮어쓰지 않고 유지합니다.
-            </li>
-          </ul>
+          <!---실전 적용 사례--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              @use 실전 적용 사례
+            </h2>
+            <div class="mb-6 px-1">
+              <p class="text-md leading-relaxed font-medium text-slate-600">
+                @use와 네임스페이스를 활용해 스타일의 출처를 명확히 하고 기존 @import 방식의 전역 오염 및 이름 충돌
+                문제를 근본적으로 해결했습니다. 파일 상단에 의존성을 명시함으로써 대규모 프로젝트에서도 안전하고 투명한
+                모듈 관리가 가능하도록 설계했습니다.
+              </p>
+            </div>
 
-          <h2>나의 생각 및 응용</h2>
-          <p>
-            SCSS는 자주 쓰는 값들을 변수로 관리할 수 있어 스타일 작업이 훨씬
-            효율적이었습니다.
-          </p>
-          <p>
-            초기 설정 파일에서 공통 변수들을 잘 정리해두고, 필요하다면 !global,
-            !default 같은 기능도 변수 범위나 재할당에 활용할 계획입니다.
-          </p>
+            <div class="px-1">
+              <div class="overflow-hidden rounded-xl bg-slate-900 p-6 text-sm text-slate-300 shadow-lg">
+                <pre class="overflow-x-auto leading-relaxed"><code>/* layout/_header.scss */
 
-          <h2>기술 적용 사례</h2>
-          <p>이 기술은 스타벅스 페이지 프로젝트의 SCSS파일에 활용했습니다.</p>
+@use "sass:map";
+@use "../abstracts" as abs;
 
-          <h2>관련 자료</h2>
-          <ul>
-            <li>
-              <a
-                href="https://sass-lang.com/documentation/variables/"
-                target="_blank"
-                >SCSS Variables</a
-              >
-            </li>
-          </ul>
+%header-item-base {
+  height: 100%;
+  padding: 10px;
+  @include abs.flex-col;
+}
+
+.header {
+  height: 100%;
+  border-right: 2px solid map.get(abs.$colors, "white");
+  @include abs.flex-col;
+
+  &__logo {
+    @extend %header-item-base;
+
+    @include abs.font-setup(
+      map.get(abs.$font-sizes, "logo"),
+      map.get(abs.$font-families, "logo"),
+      bold,
+      italic
+    );
+    color: map.get(abs.$colors, "white");
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!---비교 분석--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              비교 분석
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  기존의 <code class="font-semibold text-teal-600">@import</code> 방식은 모든 변수와 믹스인이 전역으로
+                  공유되어 의도치 않은 스타일 중첩과 이름 충돌이 발생하는 전역 오염의 한계가 있었습니다. 특히 수많은
+                  파일 중에서 특정 변수의 출처를 파악하기 어렵고 동일한 파일을 여러 번 호출할 경우 중복 컴파일로 인해
+                  빌드 효율이 저하되는 단점을 가지고 있었습니다.
+                </p>
+                <p>
+                  이를 해결하기 위해 <code class="font-semibold text-teal-600">@use</code>와
+                  <code class="font-semibold text-teal-600">@forward</code>를 조합한 현대적인 모듈 시스템을
+                  도입했습니다. 각 폴더를 하나의 꾸러미로 묶고 사용할 때는 네임스페이스를 통해 출처를 명확히
+                  표시했습니다. 덕분에 이름이 겹칠 걱정 없이 안전하게 코드를 짤 수 있고 수정이 필요할 때도 해당 파일만
+                  고치면 되어 유지보수가 훨씬 간편하고 정확해졌습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---주요 학습 포인트--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              주요 학습 포인트
+            </h2>
+
+            <div class="max-w-4xl">
+              <div class="text-md space-y-4 leading-relaxed break-keep text-slate-600">
+                <p>
+                  수많은 스타일 파일들이 흩어지지 않도록 단일 진입점(<code class="font-semibold text-teal-600"
+                    >_index.scss</code
+                  >)을 구축하며 프로젝트의 전체적인 질서를 잡는 법을 익혔습니다. 폴더별로 기능을 묶어 외부에 공개하는
+                  방식을 통해 호출하는 쪽에서는 내부 구조를 몰라도 필요한 자원을 쉽게 찾아 쓸 수 있는 모듈 시스템을
+                  경험했습니다. 이는 복잡한 대규모 프로젝트에서도 스타일의 흐름을 한눈에 파악하고 제어할 수 있는 기초가
+                  되었습니다.
+                </p>
+                <p>
+                  변수나 믹스인을 사용할 때 출처를 명시하는 네임스페이스 활용 습관을 통해 코드 한 줄이 미치는 영향을
+                  스스로 통제할 수 있게 되었습니다. 단순히 스타일을 입히는 단계를 넘어 하나의 코드가 의도치 않게 다른
+                  곳에 영향을 주지 않도록 시스템적인 규칙으로 해결하며 안전한 코드를 고민하게 되었습니다. 결과적으로
+                  수정이 필요할 때 망설임 없이 필요한 파일만 관리할 수 있는 지속 가능한 개발 흐름을 완성했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!---적용 사례 & 관련 자료--->
+          <div>
+            <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold text-slate-900">
+              <span class="h-8 w-1.5 rounded-full bg-teal-400"></span>
+              적용 사례 & 관련 자료
+            </h2>
+            <div></div>
+          </div>
         </section>
       </div>
     </main>
 
-    <footer>
-      <div class="inner">
-        <p>
-          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
-        </p>
-        <p>© 2025 Lee, Byeong-Gwan. All Rights Reserved.</p>
+    <!---footer--->
+    <footer class="bg-teal-900 py-10 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <div class="mb-6 flex justify-center gap-6">
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-brands fa-github text-2xl"></i>
+          </a>
+          <a href="" class="text-teal-200 transition-colors hover:text-white">
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </a>
+        </div>
+
+        <p class="font-medium text-teal-100/70">©Lee, Byeong-Gwan. All rights reserved.</p>
+        <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-teal-500/30"></div>
       </div>
     </footer>
   </body>
