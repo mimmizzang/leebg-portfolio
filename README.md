@@ -5,18 +5,31 @@
 
 ---
 
-## 미리보기
+## Preview
 
-![Portfolio Thumbnail](./img/portfolio-thumbnail-a.png)
+![Portfolio Thumbnail](public/img/main/portfolio-thumbnail-a.png)
 
-[사이트 바로가기](https://strong-cuchufli-e8731c.netlify.app/)
-
----
-
-## 사용 기술
-
-- **Frontend:** HTML5, CSS3(SCSS), JavaScript
-- **Libraries:** GSAP, Swiper.js, AOS, Isotope.js
-- **Tools:** Git, GitHub
+[포트폴리오 라이브 바로가기](https://strong-cuchufli-e8731c.netlify.app/)
 
 ---
+
+## Tech Stack & Skill Note
+
+상세한 기술적 구현 방식과 학습 기록은 **[Skill Note]** 페이지에 정리되어있습니다
+
+### **Language & Style**
+
+- **HTML5 / CSS3**
+- **SCSS**
+- **Javascript**
+
+### **Libraries & UI Framework**
+
+- **Interaction**: GSAP, AOS, Swiper.js
+- **Layout**: Isotope.js
+- **Tailwind CSS v4**
+
+### **Tools**
+
+- **Bundler**: Vite
+- **Version Control**: Git, GitHub
